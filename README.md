@@ -1,0 +1,2 @@
+# alanbot
+alanbot discord bot
