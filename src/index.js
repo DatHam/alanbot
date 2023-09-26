@@ -28,6 +28,17 @@ client.on(Events.ClientReady, c => {
 });
 
 client.on('messageCreate', message => {
+    if (message.author.id == "1139278863457857707") {
+        console.log(`sambot said something\t${message.guild.name}\t\t${message.channel.name}\t\t${message.author.username}\t\t${message.createdAt.toString()}`)
+        if (message.content.indexOf("concept of zero") != -1) {
+            message.reply({
+                content: `omg shut up`,
+                allowedMentions: { parse: [] },
+            });
+            console.log(`concept 0\t${message.guild.name}\t\t${message.channel.name}\t\t${message.author.username}\t\t${message.createdAt.toString()}`);
+        }
+    }
+
     if (!message.author.bot) {
 
         let messageLowercase = message.content.toLowerCase();
@@ -101,7 +112,6 @@ client.on('messageCreate', message => {
                 allowedMentions: { parse: [] },
             });
             console.log(`im\t\t${message.guild.name}\t\t${message.channel.name}\t\t${message.author.username}\t\t${message.createdAt.toString()}`);
-
         }
     }
 });
