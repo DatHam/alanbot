@@ -29,17 +29,20 @@ client.on(Events.ClientReady, c => {
 
 client.on('messageCreate', message => {
     if (!message.author.bot) {
+
+        let messageLowercase = message.content.toLowerCase();
+
         // pingpong
         if (message.content === 'ping') {
             message.reply('pong');
-            console.log(`pingpong\t${message.guild.name}\t\t\t${message.channel.name}\t\t\t${message.author.username}\t\t\t${message.createdAt.toString()}`);
+            console.log(`pingpong\t${message.guild.name}\t\t${message.channel.name}\t\t${message.author.username}\t\t${message.createdAt.toString()}`);
         }
 
         // tesses
         let indexOfLastTessInMessage = -1;
         let indexOfLastTessInArray = -1;
         for (let i = 0; i < TESSES.length; i++) {
-            let lastIndex = message.content.toLowerCase().lastIndexOf(TESSES[i]);
+            let lastIndex = messageLowercase.lastIndexOf(TESSES[i]);
             if (lastIndex + TESSES[i].length + TICKLE.length >= 2000) { // checks if message is too long
                 message.reply({
                     content: `nice try but i fixed it`,
@@ -55,25 +58,50 @@ client.on('messageCreate', message => {
                 content: `${message.content.substring(0, indexOfLastTessInMessage + TESSES[indexOfLastTessInArray].length)}${TICKLE}`,
                 allowedMentions: { parse: [] },
             });
-            console.log(`t:${TESSES[indexOfLastTessInArray]}\t\t${message.guild.name}\t\t\t${message.channel.name}\t\t\t${message.author.username}\t\t\t${message.createdAt.toString()}`);
+            console.log(`t:${TESSES[indexOfLastTessInArray]}\t\t${message.guild.name}\t\t${message.channel.name}\t\t${message.author.username}\t\t${message.createdAt.toString()}`);
         }
 
         // eens/eans
-        if (message.content.toLowerCase().indexOf('eens') != -1 || message.content.toLowerCase().indexOf('eans') != -1) {
+        if (messageLowercase.indexOf('eens') != -1 || messageLowercase.indexOf('eans') != -1) {
             message.reply({
-                content: `cool ${message.content.substring(0, Math.max(message.content.toLowerCase().lastIndexOf('eens'), message.content.toLowerCase().lastIndexOf('eans')) + 4)}`,
+                content: `cool ${message.content.substring(0, Math.max(messageLowercase.lastIndexOf('eens'), messageLowercase.lastIndexOf('eans')) + 4)}`,
                 allowedMentions: { parse: [] },
             });
-            console.log(`eens/eans\t${message.guild.name}\t\t\t${message.channel.name}\t\t\t${message.author.username}\t\t\t${message.createdAt.toString()}`);
+            console.log(`eens/eans\t${message.guild.name}\t\t${message.channel.name}\t\t${message.author.username}\t\t${message.createdAt.toString()}`);
         }
 
         // sam>alan
-        if (message.content.toLowerCase().indexOf('sambot') != -1) {
+        if (messageLowercase.indexOf('sambot') != -1) {
             message.reply({
-                content: `${message.content.substring(0, message.content.toLowerCase().lastIndexOf('sambot') + 6)} > alanbot`,
+                content: `${message.content.substring(0, messageLowercase.lastIndexOf('sambot') + 6)} > alanbot`,
                 allowedMentions: { parse: [] },
             });
-            console.log(`sam>alan\t${message.guild.name}\t\t\t${message.channel.name}\t\t\t${message.author.username}\t\t\t${message.createdAt.toString()}`);
+            console.log(`sam>alan\t${message.guild.name}\t\t${message.channel.name}\t\t${message.author.username}\t\t${message.createdAt.toString()}`);
+        }
+
+        // im
+        if (messageLowercase.indexOf("im") != -1 || messageLowercase.indexOf("i'm") != -1) {
+            let indexIm = messageLowercase.indexOf("im");
+            let indexIam = messageLowercase.indexOf("i'm");
+            let startIndex = -1;
+            if (indexIam == -1 || (indexIm != -1 && indexIm < indexIam)) {
+                startIndex = indexIm + 2;
+                if (messageLowercase.charAt(startIndex) == ' ') {
+                    startIndex++;
+                }
+            } else {
+                startIndex = indexIam + 3;
+                if (messageLowercase.charAt(startIndex) == ' ') {
+                    startIndex++;
+                }
+            }
+
+            message.reply({
+                content: `hi ${message.content.substring(startIndex)}`,
+                allowedMentions: { parse: [] },
+            });
+            console.log(`im\t\t${message.guild.name}\t\t${message.channel.name}\t\t${message.author.username}\t\t${message.createdAt.toString()}`);
+
         }
     }
 });
