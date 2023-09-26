@@ -12,6 +12,7 @@ const client = new Client({
 
 const TESSES = ['ess', 'est'];
 const TICKLE = ' tickles very tasty';
+const IMS = ["im", "i'm", "i am"];
 
 
 // client.on('ready', () => {
