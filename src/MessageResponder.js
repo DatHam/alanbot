@@ -1,6 +1,7 @@
 const TESSES = ['ess', 'est'];
 const TICKLE = ' tickles very tasty';
-const IMS = ["im", "i'm", "i am", "iam"];
+const IMS = ["im", "i'm", "i am", "iam", "i was", "i will be", "i'll be", "ill be", 
+                "i have been", "i've been", "ive been", "i had been", "i'd been", "id been"];
 
 const logMessage = (message, name) => {
     console.log(`${name}\t| ${message.guild.name}\t| ${message.channel.name}\t| ${message.author.username}\t| ${message.createdAt.toString()}`);
@@ -59,18 +60,18 @@ const MessageResponder = {
     },
     im: (message) => {
         let messageLowercase = message.content.toLowerCase();
-        let indexOfFirstImInMessage = -1;
+        let indexOfFirstImInMessage = Number.MAX_SAFE_INTEGER;
         let indexOfFirstImInArray = -1;
 
         for (let i = 0; i < IMS.length; i++) {
             let firstIndex = messageLowercase.indexOf(IMS[i]);
-            if (firstIndex > indexOfFirstImInMessage) {
+            if (firstIndex != -1 && firstIndex < indexOfFirstImInMessage) {
                 indexOfFirstImInMessage = firstIndex;
                 indexOfFirstImInArray = i;
             }
         }
 
-        if (indexOfFirstImInMessage != -1) {
+        if (indexOfFirstImInMessage != Number.MAX_SAFE_INTEGER) {
             let startIndex = indexOfFirstImInMessage + IMS[indexOfFirstImInArray].length;
             if (messageLowercase.charAt(startIndex) == ' ') {
                 startIndex++;
