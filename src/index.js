@@ -1,8 +1,8 @@
 const { Client, GatewayIntentBits, Events } = require('discord.js');
 require('dotenv/config');
-// const tess = require("./MessageResponder.js");
 const MessageResponder = require("./MessageResponder.js");
-
+const Logger = require("./Logger.js");
+const EnumUserID = require("./EnumUserID.js");
 
 const client = new Client({
     intents: [
@@ -26,15 +26,16 @@ client.on(Events.ClientReady, c => {
     console.log("---------------------------------------------------------------");
 });
 
+
 client.on('messageCreate', message => {
-    if (message.author.id == "1139278863457857707") {
-        console.log(`sambot said something\t${message.guild.name}\t\t${message.channel.name}\t\t${message.author.username}\t\t${message.createdAt.toString()}`)
+    if (message.author.id == EnumUserID.sambot) {
+        Logger.logMessage(message, "SB msg");
         if (message.content.indexOf("concept of zero") != -1) {
             message.reply({
                 content: `omg shut up`,
                 allowedMentions: { parse: [] },
             });
-            console.log(`concept 0\t${message.guild.name}\t\t${message.channel.name}\t\t${message.author.username}\t\t${message.createdAt.toString()}`);
+            Logger.logMessage(message, "SB 0")
         }
     }
 
@@ -47,14 +48,14 @@ client.on('messageCreate', message => {
     }
 });
 
-const SAMBOT_ID = 1139278863457857707;
+
 const SAMBOT_STATUS_UPDATE_CHANNEL = "1149204443527663686";
 const USER_IDS_TO_CHECK = [1139278863457857707, 508047929853083648];
 client.on(Events.PresenceUpdate, (oldpresence, newpresence) => {
     let member = newpresence.member;
     // console.log(`${member.user.username} changed presence from ${oldpresence == null ? null : oldpresence.status} to ${newpresence == null ? null : newpresence.status} in ${member.guild}`);
     if (oldpresence != newpresence && client.channels.cache.get(SAMBOT_STATUS_UPDATE_CHANNEL).guildId == member.guild.id) {
-        if (member.id == SAMBOT_ID) {
+        if (member.id == EnumUserID.sambot) {
             console.log("sambot changed it!!!!!!");
             if (newpresence.status == "offline") {
                 console.log("sambot went offline");

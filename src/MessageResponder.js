@@ -1,17 +1,18 @@
+const Logger = require("./Logger.js");
+
+
 const TESSES = ['ess', 'est'];
 const TICKLE = ' tickles very tasty';
 const IMS = ["im", "i'm", "i am", "iam", "i was", "i will be", "i'll be", "ill be", 
-                "i have been", "i've been", "ive been", "i had been", "i'd been", "id been"];
-
-const logMessage = (message, name) => {
-    console.log(`${name}\t| ${message.guild.name}\t| ${message.channel.name}\t| ${message.author.username}\t| ${message.createdAt.toString()}`);
-};
+                "i have been", "i've been", "ive been", "i had been", "i'd been", "id been",
+                "i will have been", "i'll have been", "ill have been"
+            ];
 
 const MessageResponder = {
     pingpong: (message) => {
         if (message.content == 'ping') {
             message.reply('pong');
-            logMessage(message, "ponged");
+            Logger.logMessage(message, "ponged");
         }
     },
     tess: (message) => {
@@ -35,7 +36,7 @@ const MessageResponder = {
                 content: `${message.content.substring(0, indexOfLastTessInMessage + TESSES[indexOfLastTessInArray].length)}${TICKLE}`,
                 allowedMentions: { parse: [] },
             });
-            logMessage(message, `t:${TESSES[indexOfLastTessInArray]}`);
+            Logger.logMessage(message, `t:${TESSES[indexOfLastTessInArray]}`);
         }
     },
     cool: (message) => {
@@ -45,7 +46,7 @@ const MessageResponder = {
                 content: `cool ${message.content.substring(0, Math.max(messageLowercase.lastIndexOf('eens'), messageLowercase.lastIndexOf('eans')) + 4)}`,
                 allowedMentions: { parse: [] },
             });
-            logMessage(message, "cool");
+            Logger.logMessage(message, "cool");
         }
     },
     sambot: (message) => {
@@ -55,7 +56,7 @@ const MessageResponder = {
                 content: `${message.content.substring(0, messageLowercase.lastIndexOf('sambot') + 6)} > alanbot`,
                 allowedMentions: { parse: [] },
             });
-            logMessage(message, "sb>ab");
+            Logger.logMessage(message, "sb>ab");
         }
     },
     im: (message) => {
@@ -81,7 +82,7 @@ const MessageResponder = {
                 content: `hi ${message.content.substring(startIndex)}`,
                 allowedMentions: { parse: [] },
             });
-            logMessage(message, `im:${IMS[indexOfFirstImInArray]}`);
+            Logger.logMessage(message, `im:${indexOfFirstImInArray}`);
         }
     },
     
