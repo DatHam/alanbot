@@ -1,0 +1,1 @@
+users/guilds/channels to ignore or to enable
