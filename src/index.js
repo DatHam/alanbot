@@ -17,6 +17,7 @@ const client = new Client({
     ],
 });
 
+
 // client.on('ready', () => {
 //     console.log('The bot is ready');
 // });
@@ -65,11 +66,8 @@ client.on(Events.PresenceUpdate, (oldpresence, newpresence) => {
         //     console.log(`${member.user.username} changed presence from ${oldpresence == null ? null : oldpresence.status} to ${newpresence == null ? null : newpresence.status} in ${member.guild}`);
         //     client.channels.cache.get(SAMBOT_STATUS_UPDATE_CHANNEL).send(`${member.user.username} changed from ${oldpresence == null ? null : oldpresence.status} to ${newpresence == null ? null : newpresence.status}`);
         // }
-        
-
     }
 });
-
 
 
 client.login(process.env.TOKEN);
