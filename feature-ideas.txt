@@ -1,1 +1,5 @@
 users/guilds/channels to ignore or to enable
+
+MessageResponder return if replied or not?
+
+make the error logging better bc it's really scuffed

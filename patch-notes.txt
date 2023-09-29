@@ -1,4 +1,19 @@
 <patch>
+2023 08 06
+alanbot patch 1.0.0
+    - alanbot responds to "ping" with "pong"
+    - alanbot responds to messages containing "ess"  
+<\patch>
+
+
+<patch>
+2023 08 06
+alanbot patch 1.0.1
+    - alanbot will no longer respond to itself or other bots
+<\patch>
+
+
+<patch>
 2023 08 07
 alanbot patch 1.0.2
     - alanbot will no longer ping @everyone, @role, or @user even if the text includes a ping
@@ -91,35 +106,21 @@ alanbot patch 1.1.7
 
 
 <patch>
-
-<\patch>
-
-
-<patch>
-
-<\patch>
-
-
-<patch>
-
-<\patch>
-
-
-<patch>
-
-<\patch>
-
-
-<patch>
-
-<\patch>
-
-
-<patch>
-
-<\patch>
-
-
-<patch>
-
+2023 09 29
+alanbot patch 1.2.0
+    - added PresenceLogger.js
+    - alanbot will now log:
+        - whenever it is ready:
+            - in <#1157401558997291150> (#alanbot-logs)
+            - on a local file
+            - in the console
+        - whenever there is an error:
+            - in <#1157401558997291150> (#alanbot-logs) when possible
+            - on a local file
+            - in the console
+        - whenever it responds to a message:
+            - in <#1157401558997291150> (#alanbot-logs)
+            - in the console
+    - if there has been 10 errors for a single session, alanbot will
+        crash itself to protect my files from being exploited by you guys
 <\patch>
