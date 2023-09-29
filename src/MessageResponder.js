@@ -12,7 +12,7 @@ const MessageResponder = {
     pingpong: (message) => {
         if (message.content == 'ping') {
             message.reply('pong');
-            Logger.logMessage(message, "ponged");
+            Logger.logResponse(message, "ponged");
         }
     },
     tess: (message) => {
@@ -36,7 +36,7 @@ const MessageResponder = {
                 content: `${message.content.substring(0, indexOfLastTessInMessage + TESSES[indexOfLastTessInArray].length)}${TICKLE}`,
                 allowedMentions: { parse: [] },
             });
-            Logger.logMessage(message, `t:${TESSES[indexOfLastTessInArray]}`);
+            Logger.logResponse(message, `t:${TESSES[indexOfLastTessInArray]}`);
         }
     },
     cool: (message) => {
@@ -46,7 +46,7 @@ const MessageResponder = {
                 content: `cool ${message.content.substring(0, Math.max(messageLowercase.lastIndexOf('eens'), messageLowercase.lastIndexOf('eans')) + 4)}`,
                 allowedMentions: { parse: [] },
             });
-            Logger.logMessage(message, "cool");
+            Logger.logResponse(message, "cool");
         }
     },
     sambot: (message) => {
@@ -56,7 +56,7 @@ const MessageResponder = {
                 content: `${message.content.substring(0, messageLowercase.lastIndexOf('sambot') + 6)} > alanbot`,
                 allowedMentions: { parse: [] },
             });
-            Logger.logMessage(message, "sb>ab");
+            Logger.logResponse(message, "sb>ab");
         }
     },
     im: (message) => {
@@ -82,7 +82,7 @@ const MessageResponder = {
                 content: `hi ${message.content.substring(startIndex)}`,
                 allowedMentions: { parse: [] },
             });
-            Logger.logMessage(message, `im:${indexOfFirstImInArray}`);
+            Logger.logResponse(message, `im:${indexOfFirstImInArray}`);
         }
     },
     

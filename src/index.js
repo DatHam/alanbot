@@ -1,8 +1,12 @@
 const { Client, GatewayIntentBits, Events } = require('discord.js');
 require('dotenv/config');
+
 const MessageResponder = require("./MessageResponder.js");
 const Logger = require("./Logger.js");
-const EnumUserID = require("./EnumUserID.js");
+const UserIDs = require("./IDs/UserIDs.js");
+const GuildIDs = require("./IDs/GuildIDs.js");
+const GuildChannelIDs = require("./IDs/GuildChannelIDs.js");
+
 
 const client = new Client({
     intents: [
@@ -14,28 +18,22 @@ const client = new Client({
 });
 
 // client.on('ready', () => {
-    
 //     console.log('The bot is ready');
 // });
 
 client.on(Events.ClientReady, c => {
-	console.log(`\nReady! Logged in as ${c.user.tag} in the following servers:`);
-    client.guilds.cache.forEach((guild, key, map) => {
-        console.log(`${guild.id}\t${guild.name}`);
-    });
-    console.log("---------------------------------------------------------------");
+    Logger.logReady(client, c);
 });
 
-
-client.on('messageCreate', message => {
-    if (message.author.id == EnumUserID.sambot) {
-        Logger.logMessage(message, "SB msg");
+client.on(Events.MessageCreate, message => {
+    if (message.author.id == UserIDs.sambot) {
+        Logger.logResponse(message, "SB msg");
         if (message.content.indexOf("concept of zero") != -1) {
             message.reply({
                 content: `omg shut up`,
                 allowedMentions: { parse: [] },
             });
-            Logger.logMessage(message, "SB 0")
+            Logger.logResponse(message, "SB 0")
         }
     }
 
@@ -48,14 +46,13 @@ client.on('messageCreate', message => {
     }
 });
 
-
 const SAMBOT_STATUS_UPDATE_CHANNEL = "1149204443527663686";
 const USER_IDS_TO_CHECK = [1139278863457857707, 508047929853083648];
 client.on(Events.PresenceUpdate, (oldpresence, newpresence) => {
     let member = newpresence.member;
     // console.log(`${member.user.username} changed presence from ${oldpresence == null ? null : oldpresence.status} to ${newpresence == null ? null : newpresence.status} in ${member.guild}`);
     if (oldpresence != newpresence && client.channels.cache.get(SAMBOT_STATUS_UPDATE_CHANNEL).guildId == member.guild.id) {
-        if (member.id == EnumUserID.sambot) {
+        if (member.id == UserIDs.sambot) {
             console.log("sambot changed it!!!!!!");
             if (newpresence.status == "offline") {
                 console.log("sambot went offline");
@@ -76,4 +73,3 @@ client.on(Events.PresenceUpdate, (oldpresence, newpresence) => {
 
 
 client.login(process.env.TOKEN);
-
