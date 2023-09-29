@@ -82,7 +82,7 @@ alanbot patch 1.1.6
 
 <patch>
 2023 09 29
-alanbot patch 1.2.0
+alanbot patch 1.1.7
     - added patch-notes.txt to the project
     - created files for channel IDs and guild IDs
     - added logReady() function
