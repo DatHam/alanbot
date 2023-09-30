@@ -3,14 +3,14 @@
 alanbot patch 1.0.0
     - alanbot responds to "ping" with "pong"
     - alanbot responds to messages containing "ess"  
-<\patch>
+</patch>
 
 
 <patch>
 2023 08 06
 alanbot patch 1.0.1
     - alanbot will no longer respond to itself or other bots
-<\patch>
+</patch>
 
 
 <patch>
@@ -19,49 +19,49 @@ alanbot patch 1.0.2
     - alanbot will no longer ping @everyone, @role, or @user even if the text includes a ping
     - alanbot will now respond to any variation on capitalization of 'ess' or 'est'
     - alanbot will now respond to the last 'ess' or 'est', instead of prioritizing 'ess'
-<\patch>
+</patch>
 
 
 <patch>
 2023 08 08
 alanbot patch 1.0.3
     - alanbot will no longer attempt to send a message longer than the maximum allowed by discord (triggered by tess)
-<\patch>
+</patch>
 
 
 <patch>
 2023 08 09
 alanbot patch 1.0.4
     - alanbot will now respond to messages containing "eens" or "eans" with `cool ${message}`
-<\patch>
+</patch>
 
 
 <patch>
 2023 09 06
 alanbot patch 1.0.5
     - alanbot will now respond to messages containing "sambot" with "[message]sambot > alanbot" 
-<\patch>
+</patch>
 
 
 <patch>
 2023 09 06
 alanbot patch 1.1.0
     - alanbot will now send a message in <#1149204443527663686> if sambot changes presence to online or offline/invisible
-<\patch>
+</patch>
 
 
 <patch>
 2023 09 26
 alanbot patch 1.1.1
     - alanbot will now respond to messages with "im" or "i'm" with a dad joke
-<\patch>
+</patch>
 
 
 <patch>
 2023 09 26
 alanbot patch 1.1.2
     - alanbot will now respond to sambot whenever he says any message containing "concept of zero"
-<\patch>
+</patch>
 
 
 <patch>
@@ -69,7 +69,7 @@ alanbot patch 1.1.2
 alanbot patch 1.1.3
     - alanbot will now also respond to messages with "i am" or "iam" with a dad joke
     - made the code better by making helper methods and putting them in a separate file
-<\patch>
+</patch>
 
 
 <patch>
@@ -77,14 +77,14 @@ alanbot patch 1.1.3
 alanbot patch 1.1.4
     - alanbot will now also respond to messages containing:
         "i was", "i will be", "i'll be", "ill be", "i have been", "i've been", "ive been", "i had been", "i'd been", "id been"
-<\patch>
+</patch>
 
 
 <patch>
 2023 09 28
 alanbot patch 1.1.5
     - alanbot will now correctly respond to the first "i'm" like sequence 
-<\patch>
+</patch>
 
 
 <patch>
@@ -92,7 +92,7 @@ alanbot patch 1.1.5
 alanbot patch 1.1.6
     - alanbot now has two new internal files: Logger.js and EnumUserID.js
     - alanbot will now also respond to messages containing "i will have been", "i'll have been", and "ill have been" with a dad joke
-<\patch>
+</patch>
 
 
 <patch>
@@ -102,7 +102,7 @@ alanbot patch 1.1.7
     - created files for channel IDs and guild IDs
     - added logReady() function
     - alanbot now logs logs in <#1157401558997291150> (#alanbot-logs) instead of only the console
-<\patch>
+</patch>
 
 
 <patch>
@@ -123,7 +123,7 @@ alanbot patch 1.2.0
             - in the console
     - if there has been 10 errors for a single session, alanbot will
         crash itself to protect my files from being exploited by you guys
-<\patch>
+</patch>
 
 
 <patch>
@@ -134,4 +134,12 @@ alanbot patch 1.2.1
       committing the changes to logs and it would be really annoying because
       the logs on my pc and mac are different so i have to like merge them
       so yeah i just commented out that code lmaoooo
-<\patch>
+</patch>
+
+
+<patch>
+2023 09 29
+alanbot patch 1.2.2
+    - yeah so because of 1.2.1 i decided to create more detailed/separated
+      logs in the dev server so yeah
+</patch>

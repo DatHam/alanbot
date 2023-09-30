@@ -12,7 +12,8 @@ const Logger = {
 
         console.log(logMessage);
 
-        message.client.channels.cache.get(GUILD_CHANNEL_IDS.TEST_SERVER.ALANBOT_LOGS).send(`\`\`\`${logMessage}\`\`\``);
+        message.client.channels.cache.get(GUILD_CHANNEL_IDS.TEST_SERVER.ALL_LOGS).send(`\`\`\`${logMessage}\`\`\``);
+        message.client.channels.cache.get(GUILD_CHANNEL_IDS.TEST_SERVER.RESPONSE_LOGS).send(`\`\`\`${logMessage}\`\`\``);
     },
 
     logReady: (client) => {
@@ -35,7 +36,8 @@ const Logger = {
         //     }
         // });
 
-        client.channels.cache.get(GUILD_CHANNEL_IDS.TEST_SERVER.ALANBOT_LOGS).send(`\`\`\`${logMessage}\`\`\``);
+        client.channels.cache.get(GUILD_CHANNEL_IDS.TEST_SERVER.ALL_LOGS).send(`\`\`\`${logMessage}\`\`\``);
+        client.channels.cache.get(GUILD_CHANNEL_IDS.TEST_SERVER.READY_LOGS).send(`\`\`\`${logMessage}\`\`\``);
 
         // fs.appendFileSync("./alanbot-logs/ready-logs.txt", "SUCCESS\n\n", (err) => {
         //     if (err) {
@@ -63,7 +65,8 @@ const Logger = {
         //     }
         // });
 
-        client.channels.cache.get(GUILD_CHANNEL_IDS.TEST_SERVER.ALANBOT_LOGS).send(`\`\`\`${logMessage}\`\`\``);
+        client.channels.cache.get(GUILD_CHANNEL_IDS.TEST_SERVER.ALL_LOGS).send(`\`\`\`${logMessage}\`\`\``);
+        client.channels.cache.get(GUILD_CHANNEL_IDS.TEST_SERVER.ERROR_LOGS).send(`\`\`\`${logMessage}\`\`\``);
     },
 }
 
