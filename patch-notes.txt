@@ -151,3 +151,11 @@ alanbot patch 1.2.3
     - alanbot will now only respond to sambot (see patch 1.1.2) ten times
     - this is so that sam can't automate pooping my bot
 </patch>
+
+
+<patch>
+2023 09 29
+alanbot patch 1.2.3.1
+    - alanbot will now try to respond to all sambot messages
+      up to ten times to test whether it can respond to bots
+</patch>

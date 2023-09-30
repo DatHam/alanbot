@@ -18,9 +18,9 @@ const MessageResponder = {
         MAX_RESPONSES_TO_SAM: 10,
         numResponsesToSam: 0,
         conceptZero: (message) => {
-            if (message.author.id == USER_IDS.DATHAM) {
+            if (message.author.id == USER_IDS.SAMBOT) {
                 Logger.logResponse(message, "SB msg");
-                if (message.content.indexOf("concept of zero") != -1) {
+                if (message.content.indexOf("wow what a fun fact") != -1) {
                     const responseCondition = numResponsesToSam < MAX_RESPONSES_TO_SAM;
                     if (responseCondition) {
                         message.reply({
@@ -33,6 +33,20 @@ const MessageResponder = {
                 }
             }
         },
+        respondToAllMessages: (message) => {
+            if (message.author.id == USER_IDS.SAMBOT) {
+                Logger.logResponse(message, "SB msg");
+                const responseCondition = numResponsesToSam < MAX_RESPONSES_TO_SAM;
+                if (responseCondition) {
+                    message.reply({
+                        content: `if you can see this message that means bots can respond to other bots`,
+                        allowedMentions: { parse: [] },
+                    });
+                }
+                Logger.logResponse(message, `SB All r${numResponsesToSam}${responseCondition ? "t" : "f"}`);
+                numResponsesToSam++;
+            }
+        }
     },
     HumanResponder: {
         respondToPingString: (message) => {
