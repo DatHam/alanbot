@@ -37,7 +37,7 @@ client.on(Events.ClientReady, () => {
 client.on(Events.MessageCreate, message => {
 
     MessageResponder.SambotResponder.conceptZero(message);
-    MessageResponder.SambotResponder.respondToAllMessages(message);
+    // MessageResponder.SambotResponder.respondToAllMessages(message);
 
     if (!message.author.bot) {
         MessageResponder.HumanResponder.respondToPingString(message);

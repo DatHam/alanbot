@@ -159,3 +159,10 @@ alanbot patch 1.2.3.1
     - alanbot will now try to respond to all sambot messages
       up to ten times to test whether it can respond to bots
 </patch>
+
+
+<patch>
+2023 09 29
+alanbot patch 1.2.3.2
+    - reverted 1.2.3.1
+</patch>
