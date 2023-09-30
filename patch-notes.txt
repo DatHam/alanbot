@@ -143,3 +143,11 @@ alanbot patch 1.2.2
     - yeah so because of 1.2.1 i decided to create more detailed/separated
       logs in the dev server so yeah
 </patch>
+
+
+<patch>
+2023 09 29
+alanbot patch 1.2.3
+    - alanbot will now only respond to sambot (see patch 1.1.2) ten times
+    - this is so that sam can't automate pooping my bot
+</patch>

@@ -9,17 +9,27 @@ const IMS = ["im", "i'm", "i am", "iam", "i was", "i will be", "i'll be", "ill b
                 "i will have been", "i'll have been", "ill have been",
             ];
 
+
+const MAX_RESPONSES_TO_SAM = 10;
+let numResponsesToSam = 0;
+
 const MessageResponder = {
     SambotResponder: {
+        MAX_RESPONSES_TO_SAM: 10,
+        numResponsesToSam: 0,
         conceptZero: (message) => {
-            if (message.author.id == USER_IDS.SAMBOT) {
+            if (message.author.id == USER_IDS.DATHAM) {
                 Logger.logResponse(message, "SB msg");
                 if (message.content.indexOf("concept of zero") != -1) {
-                    message.reply({
-                        content: `omg shut up`,
-                        allowedMentions: { parse: [] },
-                    });
-                    Logger.logResponse(message, "SB 0")
+                    const responseCondition = numResponsesToSam < MAX_RESPONSES_TO_SAM;
+                    if (responseCondition) {
+                        message.reply({
+                            content: `omg shut up`,
+                            allowedMentions: { parse: [] },
+                        });
+                    }
+                    Logger.logResponse(message, `SB 0 r${numResponsesToSam}${responseCondition ? "t" : "f"}`);
+                    numResponsesToSam++;
                 }
             }
         },
