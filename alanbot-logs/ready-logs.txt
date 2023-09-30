@@ -297,8 +297,8 @@ SUCCESS
 
 
 READY
-DEVICE: mac
-2023-09-30T00:00:51.877Z
+DEVICE: pc
+2023-09-30T00:04:32.449Z
 Ready! Logged in as alanbot#2901 in the following servers:
 	749769485023576155	Jasper Plano West egglessbonker
 	757678426881655006	Jasper HS Orchestra 20-21
