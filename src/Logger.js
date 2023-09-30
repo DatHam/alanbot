@@ -29,7 +29,7 @@ const Logger = {
         console.log(logMessage);
         console.log("---------------------------------------------------------------");
         
-        fs.appendFileSync("./logs/ready-logs.txt", logMessage + "\n", (err) => {
+        fs.appendFileSync("./alanbot-logs/ready-logs.txt", logMessage + "\n", (err) => {
             if (err) {
                 console.error(err);
             }
@@ -37,7 +37,7 @@ const Logger = {
 
         client.channels.cache.get(GUILD_CHANNEL_IDS.TEST_SERVER.ALANBOT_LOGS).send(`\`\`\`${logMessage}\`\`\``);
 
-        fs.appendFileSync("./logs/ready-logs.txt", "SUCCESS\n\n", (err) => {
+        fs.appendFileSync("./alanbot-logs/ready-logs.txt", "SUCCESS\n\n", (err) => {
             if (err) {
                 console.error(err);
             }
@@ -57,7 +57,7 @@ const Logger = {
 
         console.error('Unhandled promise rejection:', e);
 
-        fs.appendFileSync("./logs/error-logs.txt", logMessage, (err) => {
+        fs.appendFileSync("./alanbot-logs/error-logs.txt", logMessage, (err) => {
             if (err) {
                 console.error(err);
             }

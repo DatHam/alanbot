@@ -1,0 +1,297 @@
+
+READY
+DEVICE: pc
+2023-09-29T23:11:18.903Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:14:31.739Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:14:37.267Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:15:04.816Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:16:12.844Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:18:46.596Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:20:22.192Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:25:00.608Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:29:45.418Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:31:30.852Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:35:04.856Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:35:30.238Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:36:13.070Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:36:47.695Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:36:51.065Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:39:44.739Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:40:29.594Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:40:31.486Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:41:44.710Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:42:18.270Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:42:34.281Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:43:00.961Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:44:44.616Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:45:06.801Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:46:02.136Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:46:18.210Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+
+
+READY
+DEVICE: pc
+2023-09-29T23:58:58.540Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+

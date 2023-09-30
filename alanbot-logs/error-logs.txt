@@ -1,0 +1,445 @@
+
+ERROR
+DEVICE: pc
+2023-09-29T23:08:52.985Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:15:08.346Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:30:23.972Z
+ReferenceError: GUILD_CHANNEL_IDS is not defined
+    at Object.logSambotChange (D:\Alan Files\Documents\gitRepositories\alanbot\src\PresenceLogger.js:11:69)
+    at Client.<anonymous> (D:\Alan Files\Documents\gitRepositories\alanbot\src\index.js:45:20)
+    at Client.emit (node:events:513:28)
+    at PresenceUpdateAction.handle (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\actions\PresenceUpdate.js:37:19)
+    at module.exports [as PRESENCE_UPDATE] (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\websocket\handlers\PRESENCE_UPDATE.js:4:33)
+    at WebSocketManager.handlePacket (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\websocket\WebSocketManager.js:355:31)
+    at WebSocketManager.<anonymous> (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\websocket\WebSocketManager.js:239:12)
+    at WebSocketManager.emit (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@vladfrangu\async_event_emitter\dist\index.js:282:31)
+    at WebSocketShard.<anonymous> (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\ws\dist\index.js:1173:51)
+    at WebSocketShard.emit (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@vladfrangu\async_event_emitter\dist\index.js:282:31)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:30:30.539Z
+ReferenceError: GUILD_CHANNEL_IDS is not defined
+    at Object.logSambotChange (D:\Alan Files\Documents\gitRepositories\alanbot\src\PresenceLogger.js:11:69)
+    at Client.<anonymous> (D:\Alan Files\Documents\gitRepositories\alanbot\src\index.js:45:20)
+    at Client.emit (node:events:513:28)
+    at PresenceUpdateAction.handle (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\actions\PresenceUpdate.js:37:19)
+    at module.exports [as PRESENCE_UPDATE] (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\websocket\handlers\PRESENCE_UPDATE.js:4:33)
+    at WebSocketManager.handlePacket (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\websocket\WebSocketManager.js:355:31)
+    at WebSocketManager.<anonymous> (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\websocket\WebSocketManager.js:239:12)
+    at WebSocketManager.emit (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@vladfrangu\async_event_emitter\dist\index.js:282:31)
+    at WebSocketShard.<anonymous> (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\ws\dist\index.js:1173:51)
+    at WebSocketShard.emit (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@vladfrangu\async_event_emitter\dist\index.js:282:31)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:30:30.565Z
+ReferenceError: GUILD_CHANNEL_IDS is not defined
+    at Object.logSambotChange (D:\Alan Files\Documents\gitRepositories\alanbot\src\PresenceLogger.js:11:69)
+    at Client.<anonymous> (D:\Alan Files\Documents\gitRepositories\alanbot\src\index.js:45:20)
+    at Client.emit (node:events:513:28)
+    at PresenceUpdateAction.handle (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\actions\PresenceUpdate.js:37:19)
+    at module.exports [as PRESENCE_UPDATE] (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\websocket\handlers\PRESENCE_UPDATE.js:4:33)
+    at WebSocketManager.handlePacket (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\websocket\WebSocketManager.js:355:31)
+    at WebSocketManager.<anonymous> (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\websocket\WebSocketManager.js:239:12)
+    at WebSocketManager.emit (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@vladfrangu\async_event_emitter\dist\index.js:282:31)
+    at WebSocketShard.<anonymous> (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\ws\dist\index.js:1173:51)
+    at WebSocketShard.emit (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@vladfrangu\async_event_emitter\dist\index.js:282:31)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:30:30.587Z
+ReferenceError: GUILD_CHANNEL_IDS is not defined
+    at Object.logSambotChange (D:\Alan Files\Documents\gitRepositories\alanbot\src\PresenceLogger.js:11:69)
+    at Client.<anonymous> (D:\Alan Files\Documents\gitRepositories\alanbot\src\index.js:45:20)
+    at Client.emit (node:events:513:28)
+    at PresenceUpdateAction.handle (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\actions\PresenceUpdate.js:37:19)
+    at module.exports [as PRESENCE_UPDATE] (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\websocket\handlers\PRESENCE_UPDATE.js:4:33)
+    at WebSocketManager.handlePacket (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\websocket\WebSocketManager.js:355:31)
+    at WebSocketManager.<anonymous> (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\client\websocket\WebSocketManager.js:239:12)
+    at WebSocketManager.emit (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@vladfrangu\async_event_emitter\dist\index.js:282:31)
+    at WebSocketShard.<anonymous> (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\ws\dist\index.js:1173:51)
+    at WebSocketShard.emit (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@vladfrangu\async_event_emitter\dist\index.js:282:31)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:39:51.670Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:39:53.195Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:39:54.347Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:39:55.210Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:39:55.993Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:39:56.676Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:39:57.167Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:39:57.846Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:39:58.829Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:39:59.741Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+2023-09-29T23:40:00.624Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+IN THIS SESSION THERE HAS BEEN 0 ERRORS
+2023-09-29T23:43:10.192Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+IN THIS SESSION THERE HAS BEEN 1 ERRORS
+2023-09-29T23:43:10.622Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+IN THIS SESSION THERE HAS BEEN 2 ERRORS
+2023-09-29T23:43:11.423Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+IN THIS SESSION THERE HAS BEEN 3 ERRORS
+2023-09-29T23:43:11.755Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+IN THIS SESSION THERE HAS BEEN 4 ERRORS
+2023-09-29T23:43:12.584Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+IN THIS SESSION THERE HAS BEEN 5 ERRORS
+2023-09-29T23:43:14.544Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+IN THIS SESSION THERE HAS BEEN 6 ERRORS
+2023-09-29T23:43:34.351Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+IN THIS SESSION THERE HAS BEEN 7 ERRORS
+2023-09-29T23:43:35.221Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+IN THIS SESSION THERE HAS BEEN 8 ERRORS
+2023-09-29T23:43:36.178Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+IN THIS SESSION THERE HAS BEEN 9 ERRORS
+2023-09-29T23:43:36.946Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+IN THIS SESSION THERE HAS BEEN 10 ERRORS
+2023-09-29T23:43:38.123Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM TERMINATED.
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+THIS IS ERROR NUMBER 0 IN THIS SESSION
+2023-09-29T23:44:48.215Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
+
+ERROR: UNHANDLED PROMISE REJECTION
+DEVICE: pc
+THIS IS ERROR NUMBER 1 IN THIS SESSION
+2023-09-29T23:45:19.875Z
+DiscordAPIError[50035]: Invalid Form Body
+content[BASE_TYPE_MAX_LENGTH]: Must be 2000 or fewer in length.
+    at handleErrors (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:687:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1072:23)
+    at async SequentialHandler.queueRequest (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:913:14)
+    at async _REST.request (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\@discordjs\rest\dist\index.js:1218:22)
+    at async TextChannel.send (D:\Alan Files\Documents\gitRepositories\alanbot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:162:15)
+PROGRAM NOT TERMINATED?
+
