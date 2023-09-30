@@ -1,4 +1,4 @@
-const fs = require("fs");
+// const fs = require("fs");
 
 const GUILD_CHANNEL_IDS = require("./IDS/GULD_CHANNEL_IDS");
 
@@ -29,19 +29,19 @@ const Logger = {
         console.log(logMessage);
         console.log("---------------------------------------------------------------");
         
-        fs.appendFileSync("./alanbot-logs/ready-logs.txt", logMessage + "\n", (err) => {
-            if (err) {
-                console.error(err);
-            }
-        });
+        // fs.appendFileSync("./alanbot-logs/ready-logs.txt", logMessage + "\n", (err) => {
+        //     if (err) {
+        //         console.error(err);
+        //     }
+        // });
 
         client.channels.cache.get(GUILD_CHANNEL_IDS.TEST_SERVER.ALANBOT_LOGS).send(`\`\`\`${logMessage}\`\`\``);
 
-        fs.appendFileSync("./alanbot-logs/ready-logs.txt", "SUCCESS\n\n", (err) => {
-            if (err) {
-                console.error(err);
-            }
-        });
+        // fs.appendFileSync("./alanbot-logs/ready-logs.txt", "SUCCESS\n\n", (err) => {
+        //     if (err) {
+        //         console.error(err);
+        //     }
+        // });
     },
 
     logUnhandledPromiseRejectionToFile: (e, client, numErrorsThisSession) => {
@@ -57,11 +57,11 @@ const Logger = {
 
         console.error('Unhandled promise rejection:', e);
 
-        fs.appendFileSync("./alanbot-logs/error-logs.txt", logMessage, (err) => {
-            if (err) {
-                console.error(err);
-            }
-        });
+        // fs.appendFileSync("./alanbot-logs/error-logs.txt", logMessage, (err) => {
+        //     if (err) {
+        //         console.error(err);
+        //     }
+        // });
 
         client.channels.cache.get(GUILD_CHANNEL_IDS.TEST_SERVER.ALANBOT_LOGS).send(`\`\`\`${logMessage}\`\`\``);
     },

@@ -306,3 +306,14 @@ Ready! Logged in as alanbot#2901 in the following servers:
 	1137866424791085116	test server
 SUCCESS
 
+
+READY
+DEVICE: pc
+2023-09-30T00:09:44.185Z
+Ready! Logged in as alanbot#2901 in the following servers:
+	749769485023576155	Jasper Plano West egglessbonker
+	757678426881655006	Jasper HS Orchestra 20-21
+	1111478124476117002	GEOGUSSRY
+	1137866424791085116	test server
+SUCCESS
+

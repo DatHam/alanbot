@@ -124,3 +124,14 @@ alanbot patch 1.2.0
     - if there has been 10 errors for a single session, alanbot will
         crash itself to protect my files from being exploited by you guys
 <\patch>
+
+
+<patch>
+2023 09 29
+alanbot patch 1.2.1
+    - it will no longer log into a local file because it was too annoying
+      and for some reason the .gitignore wouldn't work and it would keep
+      committing the changes to logs and it would be really annoying because
+      the logs on my pc and mac are different so i have to like merge them
+      so yeah i just commented out that code lmaoooo
+<\patch>
