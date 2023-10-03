@@ -9,6 +9,12 @@ const USER_IDS = require("./IDS/USER_IDS.js");
 const GUILD_IDS = require("./IDS/GUILD_IDS.js");
 const GUILD_CHANNEL_IDS = require("./IDS/GULD_CHANNEL_IDS.js");
 
+const IAN_GUILDS = new Set();
+IAN_GUILDS.add(GUILD_IDS.EGGLESSBONKER);
+IAN_GUILDS.add(GUILD_IDS.GEOGUSSRY);
+IAN_GUILDS.add(GUILD_IDS.JHS_ORCHESTRA);
+IAN_GUILDS.add(GUILD_IDS.TEST_SERVER);
+
 
 const client = new Client({
     intents: [
@@ -41,10 +47,12 @@ client.on(Events.MessageCreate, message => {
 
     if (!message.author.bot) {
         MessageResponder.HumanResponder.respondToPingString(message);
-        MessageResponder.HumanResponder.respondToTess(message);
-        MessageResponder.HumanResponder.respondToScreens(message);
-        MessageResponder.HumanResponder.respondToSambotString(message);
         MessageResponder.HumanResponder.respondToIm(message);
+        if (IAN_GUILDS.has(Number(message.guildId))) {
+            MessageResponder.HumanResponder.respondToTess(message);
+            MessageResponder.HumanResponder.respondToScreens(message);
+            MessageResponder.HumanResponder.respondToSambotString(message);
+        }
     }
 });
 

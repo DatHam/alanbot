@@ -166,3 +166,19 @@ alanbot patch 1.2.3.1
 alanbot patch 1.2.3.2
     - reverted 1.2.3.1
 </patch>
+
+
+<patch>
+2023 10 02
+alanbot patch 1.2.3.3
+    - commented out useless instance variables
+        - MAX_RESPONSES_TO_SAM: 10,
+        - numResponsesToSam: 0,
+</patch>
+
+
+<patch>
+2023 10 02
+alanbot patch 1.2.4
+    - added temporary code to prevent "ian" phrases from being said in servers that aren't relevant
+</patch>

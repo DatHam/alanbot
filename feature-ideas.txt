@@ -1,7 +1,9 @@
-users/guilds/channels to ignore or to enable
+- users/guilds/channels to ignore or to enable
+    - a way to disable/enable (in the code) different responses for different servers (because cool screens doesn't make sense in servers with no ian)
 
-MessageResponder return if replied or not?
+- MessageResponder return if replied or not?
 
-make the error logging better bc it's really scuffed
+- make the error logging better bc it's really scuffed
 
-are you alan yes
+- are you alan; yes; hi alan
+
