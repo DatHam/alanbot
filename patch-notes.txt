@@ -182,3 +182,10 @@ alanbot patch 1.2.3.3
 alanbot patch 1.2.4
     - added temporary code to prevent "ian" phrases from being said in servers that aren't relevant
 </patch>
+
+
+<patch>
+2023 10 18
+alanbot patch 1.2.4.1
+    - added helper function `reply()` to MessageResponder.js
+</patch>

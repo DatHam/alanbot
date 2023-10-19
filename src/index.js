@@ -48,6 +48,7 @@ client.on(Events.MessageCreate, message => {
     if (!message.author.bot) {
         MessageResponder.HumanResponder.respondToPingString(message);
         MessageResponder.HumanResponder.respondToIm(message);
+        MessageResponder.HumanResponder.respondToHiAlanbot(message);
         if (IAN_GUILDS.has(Number(message.guildId))) {
             MessageResponder.HumanResponder.respondToTess(message);
             MessageResponder.HumanResponder.respondToScreens(message);
