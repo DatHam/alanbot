@@ -189,3 +189,20 @@ alanbot patch 1.2.4
 alanbot patch 1.2.4.1
     - added helper function `reply()` to MessageResponder.js
 </patch>
+
+
+<patch>
+2023 10 19
+alanbot patch 1.2.5
+    - alanbot will now respond to anything that ends in:
+        - "actually"
+        - a lot of variations of "it is"
+      with "${message} joever"
+    - alanbot will now respond to anything that has:
+        - "uh oh"
+        - "oh no"
+        - some other stuff
+      with some variation of "it's joever"
+    - for some responses, alanbot will internally turn double quotes into single quotes
+      so that it will respond even if you are angry and hold down the shift key
+</patch>

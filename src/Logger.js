@@ -1,6 +1,6 @@
 // const fs = require("fs");
 
-const GUILD_CHANNEL_IDS = require("./IDS/GULD_CHANNEL_IDS");
+const GUILD_CHANNEL_IDS = require("./IDS/GUILD_CHANNEL_IDS");
 
 
 const TAB_LENGTH = 8;

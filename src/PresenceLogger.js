@@ -1,6 +1,6 @@
 const Logger = require("./Logger.js");
 const USER_IDS = require("./IDS/USER_IDS.js");
-const GUILD_CHANNEL_IDS = require("./IDS/GULD_CHANNEL_IDS.js");
+const GUILD_CHANNEL_IDS = require("./IDS/GUILD_CHANNEL_IDS.js");
 
 
 const logUserChange = (client, oldpresence, newpresence, userID, channelID) => {
