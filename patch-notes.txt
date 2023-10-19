@@ -206,3 +206,10 @@ alanbot patch 1.2.5
     - for some responses, alanbot will internally turn double quotes into single quotes
       so that it will respond even if you are angry and hold down the shift key
 </patch>
+
+
+<patch>
+2023 10 19 17 36
+alanbot patch 1.2.6
+    - alanbot will now start "typing" when typing
+</patch>

@@ -52,7 +52,8 @@ const MAX_RESPONSES_TO_SAM = 10;
 let numResponsesToSam = 0;
 
 
-const reply = (message, replyMessage, allowMention) => {
+const reply = async (message, replyMessage, allowMention) => {
+    await message.channel.sendTyping();
     if (allowMention) {
         message.reply({
             content: replyMessage,
@@ -146,7 +147,7 @@ const MessageResponder = {
     HumanResponder: {
         respondToPingString: (message) => {
             if (message.content == "ping") {
-                reply(message, "pong", true);
+                reply(message, "pong ", true);
                 Logger.logResponse(message, "ponged");
             }
         },
