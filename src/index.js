@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, Events } = require('discord.js');
+const { Client, GatewayIntentBits, Events, MessageType } = require('discord.js');
 require('dotenv/config');
 
 const MessageResponder = require("./MessageResponder.js");
@@ -56,6 +56,7 @@ client.on(Events.MessageCreate, message => {
         MessageResponder.HumanResponder.respondToIm(message);
         MessageResponder.HumanResponder.respondToJoevers(message);
         MessageResponder.HumanResponder.respondToHiAlanbot(message);
+        MessageResponder.HumanResponder.respondToRepliesHi(message);
         if (IAN_GUILDS.has(Number(message.guildId))) {
             MessageResponder.HumanResponder.respondToTess(message);
             MessageResponder.HumanResponder.respondToScreens(message);

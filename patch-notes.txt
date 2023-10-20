@@ -213,3 +213,10 @@ alanbot patch 1.2.5
 alanbot patch 1.2.6
     - alanbot will now start "typing" when typing
 </patch>
+
+
+<patch>
+alanbot patch 1.2.7
+2023 10 19 19 00
+    - alanbot will now reply to replies to alanbot that contains a greeting
+</patch>
