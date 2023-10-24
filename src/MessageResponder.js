@@ -228,6 +228,13 @@ const MessageResponder = {
                 return;
             }
         },
+        respondToEr: (message) => {
+            const messageLowercase = message.content.toLowerCase();
+            if (messageLowercase.indexOf("er") != -1) {
+                reply(message, "i hardly know er", false);
+                Logger.logResponse(message, `er`);
+            }
+        },
         respondToRepliesHi: (message) => {
             if (message.type == MessageType.Reply) {
                 const repliedMessage = message.channel.messages.cache.get(message.reference.messageId);

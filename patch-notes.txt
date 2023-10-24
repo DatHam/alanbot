@@ -220,3 +220,10 @@ alanbot patch 1.2.7
 2023 10 19 19 00
     - alanbot will now reply to replies to alanbot that contains a greeting
 </patch>
+
+
+<patch>
+alanbot patch 1.2.8
+2023 10 23 22 20
+    - alanbot will now reply to messages containing "er"
+</patch>

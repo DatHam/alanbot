@@ -61,6 +61,7 @@ client.on(Events.MessageCreate, message => {
             MessageResponder.HumanResponder.respondToTess(message);
             MessageResponder.HumanResponder.respondToScreens(message);
             MessageResponder.HumanResponder.respondToSambotString(message);
+            MessageResponder.HumanResponder.respondToEr(message);
         }
     }
 });

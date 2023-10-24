@@ -8,3 +8,5 @@
 - are you alan; yes; hi alan
 
 - join vc
+
+- method in MessageResponder to find last occurance of ess/est or eans/eens
