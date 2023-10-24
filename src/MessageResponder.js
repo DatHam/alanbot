@@ -34,6 +34,9 @@ const ITS = [   "actually",
 
                 "it has to be", 
                 "it will have to be", "it'll have to be", "itll have to be",
+
+                "is it", "was it", "will it be", "has it been", "had it been", 
+                "will it have been", "is it going to be", "is it gonna be", "is it going to have been", "is it gonna have been",
 ];
 const ITS_JOEVER = " joever";
 

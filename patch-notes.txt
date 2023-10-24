@@ -227,3 +227,10 @@ alanbot patch 1.2.8
 2023 10 23 22 20
     - alanbot will now reply to messages containing "er"
 </patch>
+
+
+<patch>
+alanbot patch 1.2.8.1
+2023 10 23 22 27
+    - added some interrogatory endings to joevers
+</patch>
