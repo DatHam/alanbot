@@ -62,7 +62,8 @@ const JOEVERS = [   "joever", "it's joever", "actually joever", "it's actually j
                     "bruh is it joever", "bruh is it actually joever",
 ];
 
-const GREETINGS = [ "hi", "hey", "hello", "yo", "salutations",
+const GREETINGS = [ "hi",
+                    "hey", "hello", "yo", "salutations",
                     "anneyonghaseyo", "anneyong", "ni hao", "nihao", "konnichiwa",
                     "namaste", "zdravstvuyte", "privet",
                     "hola", "aloha", "bonjour", "salut", "hallo", "ciao",
@@ -243,7 +244,7 @@ const MessageResponder = {
         },
         respondToEr: (message) => {
             const messageLowercase = message.content.toLowerCase();
-            if (messageLowercase.indexOf("er") != -1) {
+            if (messageLowercase.endsWith("er")) {
                 reply(message, "i hardly know er", false);
                 Logger.logResponse(message, `er`);
             }

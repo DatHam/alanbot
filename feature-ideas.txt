@@ -10,3 +10,5 @@
 - join vc
 
 - method in MessageResponder to find last occurance of ess/est or eans/eens
+
+- infinite iiiii in hiiiii or heeeeeyyyyyyyyy, etc.
