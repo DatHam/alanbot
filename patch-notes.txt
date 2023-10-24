@@ -234,3 +234,10 @@ alanbot patch 1.2.8.1
 2023 10 23 22 27
     - added some interrogatory endings to joevers
 </patch>
+
+
+<patch>
+alanbot patch 1.2.8.2
+2023 10 23 22 37
+    - added some more interrogatory endings to joevers
+</patch>

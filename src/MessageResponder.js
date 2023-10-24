@@ -35,8 +35,18 @@ const ITS = [   "actually",
                 "it has to be", 
                 "it will have to be", "it'll have to be", "itll have to be",
 
-                "is it", "was it", "will it be", "has it been", "had it been", 
-                "will it have been", "is it going to be", "is it gonna be", "is it going to have been", "is it gonna have been",
+                "is it", "'s it", "s it",
+                "was it",
+                "will it be", "'ll it be", "ll it be",
+                "has it been", "'s it been", "s it been", 
+                "had it been", "'d it been", "d it been",
+                "will it have been", "will it've been", "will itve been",
+                "'ll it have been", "'ll it've been", "ll it've been",
+                "ll it have been", "ll it've been", "ll itve been",
+                "is it going to be", "'s it going to be", "s it going to be",
+                "is it gonna be", "'s it gonna be", "s it gonna be",
+                "is it going to have been", "'s it going to have been", "s it going to have been",
+                "is it gonna have been", "'s it gonna have been", "s it gonna have been",
 ];
 const ITS_JOEVER = " joever";
 
