@@ -248,3 +248,18 @@ alanbot patch 1.2.8.3
 2023 10 23 17 20
     - made "hardly know er" significantly more restrictive because it was too annoying
 </patch>
+
+
+<patch>
+alanbot patch 1.2.9
+2023 10 26 23 33
+    - alanbot now only has a 20% chance of responding to a message
+        - there are some exceptions to this
+            - alanbot will always respond to "ping"
+            - alanbot will always respond to "hi alanbot"
+            - alanbot will always respond if you reply to alanbot
+            - alanbot will always respond if you ping alanbot
+            - alanbot will always respond if your message contains "alan", "dat", or "ham"
+    - Methods in MessageResponder will now return true if responded and false if not
+        - the tess one doesn't fully work due to the robustness of that one specifically
+</patch>

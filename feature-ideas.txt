@@ -4,6 +4,7 @@
 - MessageResponder return if replied or not?
 
 - make the error logging better bc it's really scuffed
+    - more robust
 
 - are you alan; yes; hi alan
 
@@ -12,3 +13,5 @@
 - method in MessageResponder to find last occurance of ess/est or eans/eens
 
 - infinite iiiii in hiiiii or heeeeeyyyyyyyyy, etc.
+
+- reminder system

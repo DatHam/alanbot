@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, Events, MessageType } = require('discord.js');
+const { Client, GatewayIntentBits, Events, MessageType, userMention } = require('discord.js');
 require('dotenv/config');
 
 const MessageResponder = require("./MessageResponder.js");
@@ -46,22 +46,36 @@ client.on(Events.ClientReady, () => {
     Logger.logReady(client);
 });
 
+const RESPONSE_CHANCE = 0.2;
+const FORCE_RESPONSE_STRINGS = [
+    "alan", "dat", "ham", userMention(USER_IDS.ALANBOT),
+]
 client.on(Events.MessageCreate, message => {
-
     MessageResponder.SambotResponder.conceptZero(message);
     // MessageResponder.SambotResponder.respondToAllMessages(message);
 
     if (!message.author.bot) {
-        MessageResponder.HumanResponder.respondToPingString(message);
-        MessageResponder.HumanResponder.respondToIm(message);
-        MessageResponder.HumanResponder.respondToJoevers(message);
         MessageResponder.HumanResponder.respondToHiAlanbot(message);
         MessageResponder.HumanResponder.respondToRepliesHi(message);
-        if (IAN_GUILDS.has(Number(message.guildId))) {
-            MessageResponder.HumanResponder.respondToTess(message);
-            MessageResponder.HumanResponder.respondToScreens(message);
-            MessageResponder.HumanResponder.respondToSambotString(message);
-            MessageResponder.HumanResponder.respondToEr(message);
+        MessageResponder.HumanResponder.respondToPingString(message);
+
+        const isReplyToAlanbot = message.type == MessageType.Reply && message.channel.messages.cache.get(message.reference.messageId).author.id == USER_IDS.ALANBOT;
+        let forceResponse = false;
+        for (let i = 0; i < FORCE_RESPONSE_STRINGS.length; i++) {
+            if (message.content.toLowerCase().indexOf(FORCE_RESPONSE_STRINGS[i]) != -1) {
+                forceResponse = true;
+                break;
+            }
+        }
+        if (isReplyToAlanbot || forceResponse || Math.random() < RESPONSE_CHANCE) {
+            MessageResponder.HumanResponder.respondToIm(message);
+            MessageResponder.HumanResponder.respondToJoevers(message);
+            if (IAN_GUILDS.has(Number(message.guildId))) {
+                MessageResponder.HumanResponder.respondToTess(message);
+                MessageResponder.HumanResponder.respondToScreens(message);
+                MessageResponder.HumanResponder.respondToSambotString(message);
+                MessageResponder.HumanResponder.respondToEr(message);
+            }    
         }
     }
 });

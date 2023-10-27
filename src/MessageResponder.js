@@ -1,4 +1,4 @@
-const { MessageType } = require("discord.js");
+const { MessageType, userMention } = require("discord.js");
 
 const Logger = require("./Logger.js");
 const USER_IDS = require("./IDS/USER_IDS.js");
@@ -95,7 +95,15 @@ const changeQuotesToApostrophes = (str) => {
 
 
 const JoeverHelper = {
-    // responds whenever a message ends with any string in ITS
+    /**
+     * Responds whenever a message ends with any string in ITS with:
+     * * message + " joever"
+     * 
+     * If message has more uppercase characters than lowercase characters, then it responds with:
+     * * message + " JOEVER"
+     * @param {*} message the message object from discord
+     * @returns true if responded and false if not
+     */
     respondToIts: (message) => {
         const messageLowercase = changeQuotesToApostrophes(message.content.toLowerCase());
         for (let i = 0; i < ITS.length; i++) {
@@ -148,11 +156,13 @@ const MessageResponder = {
                     const responseCondition = numResponsesToSam < MAX_RESPONSES_TO_SAM;
                     if (responseCondition) {
                         reply(message, `wow what a fun fact`, false);
+                        return true
                     }
                     Logger.logResponse(message, `SB 0 r${numResponsesToSam}${responseCondition ? "t" : "f"}`);
                     numResponsesToSam++;
                 }
             }
+            return false;
         },
         respondToAllMessages: (message) => {
             if (message.author.id == USER_IDS.SAMBOT) {
@@ -160,10 +170,12 @@ const MessageResponder = {
                 const responseCondition = numResponsesToSam < MAX_RESPONSES_TO_SAM;
                 if (responseCondition) {
                     reply(message, `if you can see this message that means bots can respond to other bots`, false);
+                    return true;
                 }
                 Logger.logResponse(message, `SB All r${numResponsesToSam}${responseCondition ? "t" : "f"}`);
                 numResponsesToSam++;
             }
+            return false;
         }
     },
     HumanResponder: {
@@ -171,13 +183,17 @@ const MessageResponder = {
             if (message.content == "ping") {
                 reply(message, "pong ", true);
                 Logger.logResponse(message, "ponged");
+                return true;
             }
+            return false;
         },
         respondToHiAlanbot: (message) => {
             if (message.content.toLowerCase() == "hi alanbot") {
                 reply(message, "hi", true);
                 Logger.logResponse(message, "hialan");
+                return true;
             }
+            return false;
         },
         respondToTess: (message) => {
             const messageLowercase = message.content.toLowerCase();
@@ -187,6 +203,7 @@ const MessageResponder = {
                 const lastIndex = messageLowercase.lastIndexOf(TESSES[i]);
                 if (lastIndex + TESSES[i].length + TICKLE.length >= 2000) { // checks if message is too long
                     reply(message, `nice try but i fixed it`, false);
+                    Logger.logResponse(message, `t:nice try`);
                 } else if (lastIndex > indexOfLastTessInMessage) {
                     indexOfLastTessInMessage = lastIndex;
                     indexOfLastTessInArray = i;
@@ -195,21 +212,27 @@ const MessageResponder = {
             if (indexOfLastTessInMessage != -1) {
                 reply(message, `${message.content.substring(0, indexOfLastTessInMessage + TESSES[indexOfLastTessInArray].length)}${TICKLE}`, false);
                 Logger.logResponse(message, `t:${TESSES[indexOfLastTessInArray]}`);
+                return true;
             }
+            return false;
         },
         respondToScreens: (message) => {
             const messageLowercase = message.content.toLowerCase();
             if (messageLowercase.indexOf('eens') != -1 || messageLowercase.indexOf('eans') != -1) {
                 reply(message, `cool ${message.content.substring(0, Math.max(messageLowercase.lastIndexOf('eens'), messageLowercase.lastIndexOf('eans')) + 4)}`, false);
                 Logger.logResponse(message, "screens");
+                return true;
             }
+            return false;
         },
         respondToSambotString: (message) => {
             const messageLowercase = message.content.toLowerCase();
             if (messageLowercase.indexOf('sambot') != -1) {
                 reply(message, `${message.content.substring(0, messageLowercase.lastIndexOf('sambot') + 6)} > alanbot`, false);
                 Logger.logResponse(message, "sb>ab");
+                return true;
             }
+            return false;
         },
         respondToIm: (message) => {
             const messageLowercase = changeQuotesToApostrophes(message.content.toLowerCase());
@@ -232,22 +255,27 @@ const MessageResponder = {
                 
                 reply(message, `hi ${message.content.substring(startIndex)}`, false);
                 Logger.logResponse(message, `im:${indexOfFirstImInArray}`);
+                return true;
             }
+            return false;
         },
         respondToJoevers: (message) => {
             if (JoeverHelper.respondToIts(message)) {
-                return;
+                return true;
             }
             if (JoeverHelper.respondToUhOh(message)) {
-                return;
+                return true;
             }
+            return false;
         },
         respondToEr: (message) => {
             const messageLowercase = message.content.toLowerCase();
             if (messageLowercase.endsWith("er")) {
                 reply(message, "i hardly know er", false);
                 Logger.logResponse(message, `er`);
+                return true;
             }
+            return false;
         },
         respondToRepliesHi: (message) => {
             if (message.type == MessageType.Reply) {
@@ -258,10 +286,22 @@ const MessageResponder = {
                         if (messageLowercase.indexOf(GREETINGS[i]) != -1) {
                             reply(message, `hi`, true);
                             Logger.logResponse(message, `reply: ${GREETINGS[i]}`);
+                            return true;
                         }
                     }
                 }
             }
+            if (message.content.indexOf(userMention(USER_IDS.ALANBOT)) != -1) {
+                const messageLowercase = message.content.toLowerCase();
+                    for (let i = 0; i < GREETINGS.length; i++) {
+                        if (messageLowercase.indexOf(GREETINGS[i]) != -1) {
+                            reply(message, `hi`, true);
+                            Logger.logResponse(message, `reply: ${GREETINGS[i]}`);
+                            return true;
+                        }
+                    }
+            }
+            return false;
         },
     },
 };
