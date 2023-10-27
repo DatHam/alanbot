@@ -15,3 +15,5 @@
 - infinite iiiii in hiiiii or heeeeeyyyyyyyyy, etc.
 
 - reminder system
+
+- typeScript

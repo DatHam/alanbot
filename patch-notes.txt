@@ -263,3 +263,10 @@ alanbot patch 1.2.9
     - Methods in MessageResponder will now return true if responded and false if not
         - the tess one doesn't fully work due to the robustness of that one specifically
 </patch>
+
+
+<patch>
+alanbot patch 1.2.9.1
+2023 10 26 23 49
+    - alanbot now also always responds to ian
+</patch>

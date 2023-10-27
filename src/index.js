@@ -67,7 +67,7 @@ client.on(Events.MessageCreate, message => {
                 break;
             }
         }
-        if (isReplyToAlanbot || forceResponse || Math.random() < RESPONSE_CHANCE) {
+        if (message.author.id == USER_IDS.CREEHOP || isReplyToAlanbot || forceResponse || Math.random() < RESPONSE_CHANCE) {
             MessageResponder.HumanResponder.respondToIm(message);
             MessageResponder.HumanResponder.respondToJoevers(message);
             if (IAN_GUILDS.has(Number(message.guildId))) {
