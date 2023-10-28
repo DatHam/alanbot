@@ -270,3 +270,14 @@ alanbot patch 1.2.9.1
 2023 10 26 23 49
     - alanbot now also always responds to ian
 </patch>
+
+
+<patch>
+alanbot patch 1.3
+    - migrated to from javaScript to typeScript
+        - this took like 4 hours wtf
+    - Logger.logResponse() now shows message ID
+    - alanbot will now always respond to messages containing "sambot"
+    - alanbot joevers will now also always respond
+    - added Logger.logPresenceUpdate()
+</patch>

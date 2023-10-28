@@ -1,7 +1,7 @@
-const { MessageType, userMention } = require("discord.js");
+import { MessageType, userMention, Message } from "discord.js";
 
-const Logger = require("./Logger.js");
-const USER_IDS = require("./IDS/USER_IDS.js");
+import Logger from "./Logger";
+import USER_IDS from "./IDS/USER_IDS";
 
 
 const TESSES = ['ess', 'est'];
@@ -74,7 +74,7 @@ const MAX_RESPONSES_TO_SAM = 10;
 let numResponsesToSam = 0;
 
 
-const reply = async (message, replyMessage, allowMention) => {
+const reply = async (message: Message<boolean>, replyMessage: string, allowMention: boolean) => {
     await message.channel.sendTyping();
     if (allowMention) {
         message.reply({
@@ -88,7 +88,7 @@ const reply = async (message, replyMessage, allowMention) => {
     }
 }
 
-const changeQuotesToApostrophes = (str) => {
+const changeQuotesToApostrophes = (str: string) => {
     return str.replaceAll(/"/g, "'");
 }
 
@@ -104,7 +104,7 @@ const JoeverHelper = {
      * @param {*} message the message object from discord
      * @returns true if responded and false if not
      */
-    respondToIts: (message) => {
+    respondToIts: (message: Message<boolean>) => {
         const messageLowercase = changeQuotesToApostrophes(message.content.toLowerCase());
         for (let i = 0; i < ITS.length; i++) {
             if (messageLowercase.endsWith(ITS[i])) {
@@ -123,7 +123,7 @@ const JoeverHelper = {
         }
         return false;
     },
-    respondToUhOh: (message) => {
+    respondToUhOh: (message: Message<boolean>) => {
         const messageLowercase = changeQuotesToApostrophes(message.content.toLowerCase());
         for (let i = 0; i < UH_OHS.length; i++) {
             if (messageLowercase.indexOf(UH_OHS[i]) != -1) {
@@ -149,7 +149,7 @@ const MessageResponder = {
     SambotResponder: {
         // MAX_RESPONSES_TO_SAM: 10,
         // numResponsesToSam: 0,
-        conceptZero: (message) => {
+        conceptZero: (message: Message<boolean>) => {
             if (message.author.id == USER_IDS.SAMBOT) {
                 Logger.logResponse(message, "SB msg");
                 if (message.content.indexOf("concept of zero") != -1) {
@@ -164,7 +164,7 @@ const MessageResponder = {
             }
             return false;
         },
-        respondToAllMessages: (message) => {
+        respondToAllMessages: (message: Message<boolean>) => {
             if (message.author.id == USER_IDS.SAMBOT) {
                 Logger.logResponse(message, "SB msg");
                 const responseCondition = numResponsesToSam < MAX_RESPONSES_TO_SAM;
@@ -179,7 +179,7 @@ const MessageResponder = {
         }
     },
     HumanResponder: {
-        respondToPingString: (message) => {
+        respondToPingString: (message: Message<boolean>) => {
             if (message.content == "ping") {
                 reply(message, "pong ", true);
                 Logger.logResponse(message, "ponged");
@@ -187,7 +187,7 @@ const MessageResponder = {
             }
             return false;
         },
-        respondToHiAlanbot: (message) => {
+        respondToHiAlanbot: (message: Message<boolean>) => {
             if (message.content.toLowerCase() == "hi alanbot") {
                 reply(message, "hi", true);
                 Logger.logResponse(message, "hialan");
@@ -195,7 +195,7 @@ const MessageResponder = {
             }
             return false;
         },
-        respondToTess: (message) => {
+        respondToTess: (message: Message<boolean>) => {
             const messageLowercase = message.content.toLowerCase();
             let indexOfLastTessInMessage = -1;
             let indexOfLastTessInArray = -1;
@@ -216,7 +216,7 @@ const MessageResponder = {
             }
             return false;
         },
-        respondToScreens: (message) => {
+        respondToScreens: (message: Message<boolean>) => {
             const messageLowercase = message.content.toLowerCase();
             if (messageLowercase.indexOf('eens') != -1 || messageLowercase.indexOf('eans') != -1) {
                 reply(message, `cool ${message.content.substring(0, Math.max(messageLowercase.lastIndexOf('eens'), messageLowercase.lastIndexOf('eans')) + 4)}`, false);
@@ -225,7 +225,7 @@ const MessageResponder = {
             }
             return false;
         },
-        respondToSambotString: (message) => {
+        respondToSambotString: (message: Message<boolean>) => {
             const messageLowercase = message.content.toLowerCase();
             if (messageLowercase.indexOf('sambot') != -1) {
                 reply(message, `${message.content.substring(0, messageLowercase.lastIndexOf('sambot') + 6)} > alanbot`, false);
@@ -234,7 +234,7 @@ const MessageResponder = {
             }
             return false;
         },
-        respondToIm: (message) => {
+        respondToIm: (message: Message<boolean>) => {
             const messageLowercase = changeQuotesToApostrophes(message.content.toLowerCase());
             let indexOfFirstImInMessage = Number.MAX_SAFE_INTEGER;
             let indexOfFirstImInArray = -1;
@@ -259,7 +259,7 @@ const MessageResponder = {
             }
             return false;
         },
-        respondToJoevers: (message) => {
+        respondToJoevers: (message: Message<boolean>) => {
             if (JoeverHelper.respondToIts(message)) {
                 return true;
             }
@@ -268,7 +268,7 @@ const MessageResponder = {
             }
             return false;
         },
-        respondToEr: (message) => {
+        respondToEr: (message: Message<boolean>) => {
             const messageLowercase = message.content.toLowerCase();
             if (messageLowercase.endsWith("er")) {
                 reply(message, "i hardly know er", false);
@@ -277,10 +277,10 @@ const MessageResponder = {
             }
             return false;
         },
-        respondToRepliesHi: (message) => {
+        respondToRepliesHi: (message: Message<boolean>) => {
             if (message.type == MessageType.Reply) {
-                const repliedMessage = message.channel.messages.cache.get(message.reference.messageId);
-                if (repliedMessage.author.id == USER_IDS.ALANBOT) {
+                const repliedMessage = message.channel.messages.cache.get(message.reference?.messageId || "");
+                if (repliedMessage?.author.id == USER_IDS.ALANBOT) {
                     const messageLowercase = message.content.toLowerCase();
                     for (let i = 0; i < GREETINGS.length; i++) {
                         if (messageLowercase.indexOf(GREETINGS[i]) != -1) {
@@ -306,4 +306,4 @@ const MessageResponder = {
     },
 };
 
-module.exports = MessageResponder;
+export default MessageResponder;
