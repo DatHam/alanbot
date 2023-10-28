@@ -29,7 +29,7 @@ const logPresenceChange = (client: Client<boolean>, oldpresence: Presence | null
 const PresenceLogger = {
     logSambotChange: (client: Client<boolean>, oldpresence: Presence | null, newpresence: Presence) => {
         logPresenceChange(client, oldpresence, newpresence, USER_IDS.SAMBOT, GUILD_CHANNEL_IDS.GEOGUSSRY.SAMBOT_PRESENCE_LOGS);
-        logPresenceChange(client, oldpresence, newpresence, USER_IDS.DATHAM, GUILD_CHANNEL_IDS.TEST_SERVER.TESTING_PRESENCE_UPDATES);
+        // logPresenceChange(client, oldpresence, newpresence, USER_IDS.DATHAM, GUILD_CHANNEL_IDS.TEST_SERVER.TESTING_PRESENCE_UPDATES);
     },
 }
 
