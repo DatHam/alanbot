@@ -1,7 +1,10 @@
-import { MessageType, userMention, Message } from "discord.js";
+import { MessageType, userMention, Message, channelLink, channelMention, VoiceBasedChannel, ChannelType } from "discord.js";
 
 import Logger from "./Logger";
+import VoiceChatHandler from "./VoiceChatHandler";
+
 import USER_IDS from "./IDS/USER_IDS";
+import GUILD_IDS from "./IDS/GUILD_IDS";
 
 
 const TESSES = ['ess', 'est'];
@@ -144,166 +147,237 @@ const JoeverHelper = {
 };
 
 
-
-const MessageResponder = {
-    SambotResponder: {
-        // MAX_RESPONSES_TO_SAM: 10,
-        // numResponsesToSam: 0,
-        conceptZero: (message: Message<boolean>) => {
-            if (message.author.id == USER_IDS.SAMBOT) {
-                Logger.logResponse(message, "SB msg");
-                if (message.content.indexOf("concept of zero") != -1) {
-                    const responseCondition = numResponsesToSam < MAX_RESPONSES_TO_SAM;
-                    if (responseCondition) {
-                        reply(message, `wow what a fun fact`, false);
-                        return true
-                    }
-                    Logger.logResponse(message, `SB 0 r${numResponsesToSam}${responseCondition ? "t" : "f"}`);
-                    numResponsesToSam++;
-                }
-            }
-            return false;
-        },
-        respondToAllMessages: (message: Message<boolean>) => {
-            if (message.author.id == USER_IDS.SAMBOT) {
-                Logger.logResponse(message, "SB msg");
+const SambotResponder = {
+    // MAX_RESPONSES_TO_SAM: 10,
+    // numResponsesToSam: 0,
+    conceptZero: (message: Message<boolean>) => {
+        if (message.author.id == USER_IDS.SAMBOT) {
+            Logger.logResponse(message, "SB msg");
+            if (message.content.indexOf("concept of zero") != -1) {
                 const responseCondition = numResponsesToSam < MAX_RESPONSES_TO_SAM;
                 if (responseCondition) {
-                    reply(message, `if you can see this message that means bots can respond to other bots`, false);
-                    return true;
+                    reply(message, `wow what a fun fact`, false);
+                    return true
                 }
-                Logger.logResponse(message, `SB All r${numResponsesToSam}${responseCondition ? "t" : "f"}`);
+                Logger.logResponse(message, `SB 0 r${numResponsesToSam}${responseCondition ? "t" : "f"}`);
                 numResponsesToSam++;
             }
-            return false;
         }
+        return false;
     },
-    HumanResponder: {
-        respondToPingString: (message: Message<boolean>) => {
-            if (message.content == "ping") {
-                reply(message, "pong ", true);
-                Logger.logResponse(message, "ponged");
+    respondToAllMessages: (message: Message<boolean>) => {
+        if (message.author.id == USER_IDS.SAMBOT) {
+            Logger.logResponse(message, "SB msg");
+            const responseCondition = numResponsesToSam < MAX_RESPONSES_TO_SAM;
+            if (responseCondition) {
+                reply(message, `if you can see this message that means bots can respond to other bots`, false);
                 return true;
             }
-            return false;
-        },
-        respondToHiAlanbot: (message: Message<boolean>) => {
-            if (message.content.toLowerCase() == "hi alanbot") {
-                reply(message, "hi", true);
-                Logger.logResponse(message, "hialan");
-                return true;
-            }
-            return false;
-        },
-        respondToTess: (message: Message<boolean>) => {
-            const messageLowercase = message.content.toLowerCase();
-            let indexOfLastTessInMessage = -1;
-            let indexOfLastTessInArray = -1;
-            for (let i = 0; i < TESSES.length; i++) {
-                const lastIndex = messageLowercase.lastIndexOf(TESSES[i]);
-                if (lastIndex + TESSES[i].length + TICKLE.length >= 2000) { // checks if message is too long
-                    reply(message, `nice try but i fixed it`, false);
-                    Logger.logResponse(message, `t:nice try`);
-                } else if (lastIndex > indexOfLastTessInMessage) {
-                    indexOfLastTessInMessage = lastIndex;
-                    indexOfLastTessInArray = i;
-                }
-            }
-            if (indexOfLastTessInMessage != -1) {
-                reply(message, `${message.content.substring(0, indexOfLastTessInMessage + TESSES[indexOfLastTessInArray].length)}${TICKLE}`, false);
-                Logger.logResponse(message, `t:${TESSES[indexOfLastTessInArray]}`);
-                return true;
-            }
-            return false;
-        },
-        respondToScreens: (message: Message<boolean>) => {
-            const messageLowercase = message.content.toLowerCase();
-            if (messageLowercase.indexOf('eens') != -1 || messageLowercase.indexOf('eans') != -1) {
-                reply(message, `cool ${message.content.substring(0, Math.max(messageLowercase.lastIndexOf('eens'), messageLowercase.lastIndexOf('eans')) + 4)}`, false);
-                Logger.logResponse(message, "screens");
-                return true;
-            }
-            return false;
-        },
-        respondToSambotString: (message: Message<boolean>) => {
-            const messageLowercase = message.content.toLowerCase();
-            if (messageLowercase.indexOf('sambot') != -1) {
-                reply(message, `${message.content.substring(0, messageLowercase.lastIndexOf('sambot') + 6)} > alanbot`, false);
-                Logger.logResponse(message, "sb>ab");
-                return true;
-            }
-            return false;
-        },
-        respondToIm: (message: Message<boolean>) => {
-            const messageLowercase = changeQuotesToApostrophes(message.content.toLowerCase());
-            let indexOfFirstImInMessage = Number.MAX_SAFE_INTEGER;
-            let indexOfFirstImInArray = -1;
-    
-            for (let i = 0; i < IMS.length; i++) {
-                const firstIndex = messageLowercase.indexOf(IMS[i]);
-                if (firstIndex != -1 && firstIndex < indexOfFirstImInMessage) {
-                    indexOfFirstImInMessage = firstIndex;
-                    indexOfFirstImInArray = i;
-                }
-            }
-    
-            if (indexOfFirstImInMessage != Number.MAX_SAFE_INTEGER) {
-                let startIndex = indexOfFirstImInMessage + IMS[indexOfFirstImInArray].length;
-                if (messageLowercase.charAt(startIndex) == ' ') {
-                    startIndex++;
-                }
-                
-                reply(message, `hi ${message.content.substring(startIndex)}`, false);
-                Logger.logResponse(message, `im:${indexOfFirstImInArray}`);
-                return true;
-            }
-            return false;
-        },
-        respondToJoevers: (message: Message<boolean>) => {
-            if (JoeverHelper.respondToIts(message)) {
-                return true;
-            }
-            if (JoeverHelper.respondToUhOh(message)) {
-                return true;
-            }
-            return false;
-        },
-        respondToEr: (message: Message<boolean>) => {
-            const messageLowercase = message.content.toLowerCase();
-            if (messageLowercase.endsWith("er")) {
-                reply(message, "i hardly know er", false);
-                Logger.logResponse(message, `er`);
-                return true;
-            }
-            return false;
-        },
-        respondToRepliesHi: (message: Message<boolean>) => {
-            if (message.type == MessageType.Reply) {
-                const repliedMessage = message.channel.messages.cache.get(message.reference?.messageId || "");
-                if (repliedMessage?.author.id == USER_IDS.ALANBOT) {
-                    const messageLowercase = message.content.toLowerCase();
-                    for (let i = 0; i < GREETINGS.length; i++) {
-                        if (messageLowercase.indexOf(GREETINGS[i]) != -1) {
-                            reply(message, `hi`, true);
-                            Logger.logResponse(message, `reply: ${GREETINGS[i]}`);
-                            return true;
-                        }
-                    }
-                }
-            }
-            if (message.content.indexOf(userMention(USER_IDS.ALANBOT)) != -1) {
-                const messageLowercase = message.content.toLowerCase();
-                    for (let i = 0; i < GREETINGS.length; i++) {
-                        if (messageLowercase.indexOf(GREETINGS[i]) != -1) {
-                            reply(message, `hi`, true);
-                            Logger.logResponse(message, `reply: ${GREETINGS[i]}`);
-                            return true;
-                        }
-                    }
-            }
-            return false;
-        },
-    },
+            Logger.logResponse(message, `SB All r${numResponsesToSam}${responseCondition ? "t" : "f"}`);
+            numResponsesToSam++;
+        }
+        return false;
+    }
 };
+
+const HumanResponder = {
+    respondToPingString: (message: Message<boolean>) => {
+        if (message.content == "ping") {
+            reply(message, "pong ", true);
+            Logger.logResponse(message, "ponged");
+            return true;
+        }
+        return false;
+    },
+    respondToHiAlanbot: (message: Message<boolean>) => {
+        if (message.content.toLowerCase() == "hi alanbot") {
+            reply(message, "hi", true);
+            Logger.logResponse(message, "hialan");
+            return true;
+        }
+        return false;
+    },
+    respondToTess: (message: Message<boolean>) => {
+        const messageLowercase = message.content.toLowerCase();
+        let indexOfLastTessInMessage = -1;
+        let indexOfLastTessInArray = -1;
+        for (let i = 0; i < TESSES.length; i++) {
+            const lastIndex = messageLowercase.lastIndexOf(TESSES[i]);
+            if (lastIndex + TESSES[i].length + TICKLE.length >= 2000) { // checks if message is too long
+                reply(message, `nice try but i fixed it`, false);
+                Logger.logResponse(message, `t:nice try`);
+            } else if (lastIndex > indexOfLastTessInMessage) {
+                indexOfLastTessInMessage = lastIndex;
+                indexOfLastTessInArray = i;
+            }
+        }
+        if (indexOfLastTessInMessage != -1) {
+            reply(message, `${message.content.substring(0, indexOfLastTessInMessage + TESSES[indexOfLastTessInArray].length)}${TICKLE}`, false);
+            Logger.logResponse(message, `t:${TESSES[indexOfLastTessInArray]}`);
+            return true;
+        }
+        return false;
+    },
+    respondToScreens: (message: Message<boolean>) => {
+        const messageLowercase = message.content.toLowerCase();
+        if (messageLowercase.indexOf('eens') != -1 || messageLowercase.indexOf('eans') != -1) {
+            reply(message, `cool ${message.content.substring(0, Math.max(messageLowercase.lastIndexOf('eens'), messageLowercase.lastIndexOf('eans')) + 4)}`, false);
+            Logger.logResponse(message, "screens");
+            return true;
+        }
+        return false;
+    },
+    respondToSambotString: (message: Message<boolean>) => {
+        const messageLowercase = message.content.toLowerCase();
+        if (messageLowercase.indexOf('sambot') != -1) {
+            reply(message, `${message.content.substring(0, messageLowercase.lastIndexOf('sambot') + 6)} > alanbot`, false);
+            Logger.logResponse(message, "sb>ab");
+            return true;
+        }
+        return false;
+    },
+    respondToIm: (message: Message<boolean>) => {
+        const messageLowercase = changeQuotesToApostrophes(message.content.toLowerCase());
+        let indexOfFirstImInMessage = Number.MAX_SAFE_INTEGER;
+        let indexOfFirstImInArray = -1;
+
+        for (let i = 0; i < IMS.length; i++) {
+            const firstIndex = messageLowercase.indexOf(IMS[i]);
+            if (firstIndex != -1 && firstIndex < indexOfFirstImInMessage) {
+                indexOfFirstImInMessage = firstIndex;
+                indexOfFirstImInArray = i;
+            }
+        }
+
+        if (indexOfFirstImInMessage != Number.MAX_SAFE_INTEGER) {
+            let startIndex = indexOfFirstImInMessage + IMS[indexOfFirstImInArray].length;
+            if (messageLowercase.charAt(startIndex) == ' ') {
+                startIndex++;
+            }
+            
+            reply(message, `hi ${message.content.substring(startIndex)}`, false);
+            Logger.logResponse(message, `im:${indexOfFirstImInArray}`);
+            return true;
+        }
+        return false;
+    },
+    respondToJoevers: (message: Message<boolean>) => {
+        if (JoeverHelper.respondToIts(message)) {
+            return true;
+        }
+        if (JoeverHelper.respondToUhOh(message)) {
+            return true;
+        }
+        return false;
+    },
+    respondToEr: (message: Message<boolean>) => {
+        const messageLowercase = message.content.toLowerCase();
+        if (messageLowercase.endsWith("er")) {
+            reply(message, "i hardly know er", false);
+            Logger.logResponse(message, `er`);
+            return true;
+        }
+        return false;
+    },
+    respondToRepliesHi: (message: Message<boolean>) => {
+        if (message.type == MessageType.Reply) {
+            const repliedMessage = message.channel.messages.cache.get(message.reference?.messageId || "");
+            if (repliedMessage?.author.id == USER_IDS.ALANBOT) {
+                const messageLowercase = message.content.toLowerCase();
+                for (let i = 0; i < GREETINGS.length; i++) {
+                    if (messageLowercase.indexOf(GREETINGS[i]) != -1) {
+                        reply(message, `hi`, true);
+                        Logger.logResponse(message, `reply: ${GREETINGS[i]}`);
+                        return true;
+                    }
+                }
+            }
+        }
+        if (message.content.indexOf(userMention(USER_IDS.ALANBOT)) != -1) {
+            const messageLowercase = message.content.toLowerCase();
+                for (let i = 0; i < GREETINGS.length; i++) {
+                    if (messageLowercase.indexOf(GREETINGS[i]) != -1) {
+                        reply(message, `hi`, true);
+                        Logger.logResponse(message, `reply: ${GREETINGS[i]}`);
+                        return true;
+                    }
+                }
+        }
+        return false;
+    },
+}
+
+const VCResponder = {
+    VCJoiner: (message: Message<boolean>) => {
+        const messageLowercase = message.content.toLowerCase();
+        if (messageLowercase.startsWith("join")) {
+            message.mentions.channels.forEach((channel) => {
+                if (channel.type == ChannelType.GuildVoice) {
+                    VoiceChatHandler.joinVC(channel as VoiceBasedChannel);
+                    return true;
+                }
+            });
+        }
+        return false;
+    },
+    VCLeaver: (message: Message<boolean>) => {
+        const messageLowercase = message.content.toLowerCase();
+        if (messageLowercase.startsWith("leave")) {
+            if (message.mentions.channels.size != 0) {
+                VoiceChatHandler.leaveVC(message.mentions.channels.first() as VoiceBasedChannel);
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+
+const IAN_GUILDS = [
+    GUILD_IDS.EGGLESSBONKER,
+    GUILD_IDS.GEOGUSSRY,
+    GUILD_IDS.JHS_ORCHESTRA,
+    GUILD_IDS.TEST_SERVER,
+]
+const RESPONSE_CHANCE = 0.2;
+const FORCE_RESPONSE_STRINGS = [
+    "alan", "dat", "ham", userMention(USER_IDS.ALANBOT),
+];
+const MessageResponder = {
+    respond: (message: Message<boolean>) => {
+
+        SambotResponder.conceptZero(message);
+        // SambotResponder.respondToAllMessages(message);
+
+        if (!message.author.bot) {
+
+            VCResponder.VCJoiner(message);
+            VCResponder.VCLeaver(message);
+            
+            HumanResponder.respondToHiAlanbot(message);
+            HumanResponder.respondToRepliesHi(message);
+            HumanResponder.respondToPingString(message);
+            HumanResponder.respondToSambotString(message);
+            HumanResponder.respondToJoevers(message);
+
+            const isReplyToAlanbot = message.type == MessageType.Reply && message.channel.messages.cache.get(message.reference?.messageId || "")?.author.id == USER_IDS.ALANBOT;
+            let forceResponse = false;
+            for (let i = 0; i < FORCE_RESPONSE_STRINGS.length; i++) {
+                if (message.content.toLowerCase().indexOf(FORCE_RESPONSE_STRINGS[i]) != -1) {
+                    forceResponse = true;
+                    break;
+                }
+            }
+            if (message.author.id == USER_IDS.CREEHOP || isReplyToAlanbot || forceResponse || Math.random() < RESPONSE_CHANCE) {
+                HumanResponder.respondToIm(message);
+                if (IAN_GUILDS.indexOf(message.guildId || "") != -1) {
+                    HumanResponder.respondToTess(message);
+                    HumanResponder.respondToScreens(message);
+                    HumanResponder.respondToEr(message);
+                }    
+            }
+        }
+    }
+}
 
 export default MessageResponder;

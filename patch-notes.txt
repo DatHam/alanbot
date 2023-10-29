@@ -282,3 +282,18 @@ alanbot patch 1.3
     - alanbot joevers will now also always respond
     - added Logger.logPresenceUpdate()
 </patch>
+
+
+<patch>
+alanbot patch 1.4
+2023 10 29 00 51
+    - alanbot will now join vc if you send a message like this:
+        join #"VCname"
+        - the message has to explicitly mention the channel (it has to turn blue)
+        - the channel has to be a voice channel
+    - alanbot will similarly leave vc if you send a message like this:
+        leave #anychannel
+        - the channel mention has to turn blue
+        - the channel doesn't even have to be a voice channel
+    - alanbot doesn't actually do anything in vc
+</patch>

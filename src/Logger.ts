@@ -1,4 +1,4 @@
-import { Client, Message, BaseGuildTextChannel, BaseGuildVoiceChannel, Presence } from 'discord.js';
+import { Client, Message, BaseGuildTextChannel, BaseGuildVoiceChannel, Presence, VoiceBasedChannel } from 'discord.js';
 
 import GUILD_CHANNEL_IDS from "./IDS/GUILD_CHANNEL_IDS";
 
@@ -10,14 +10,26 @@ const sendLogToChannel = (client: Client<boolean>, channelID: string, logMessage
 
 const Logger = {
     logResponse: (message: Message<boolean> , logName: string) => {
-        const guildName = message?.guild?.name;
+        const guildName = message.guild?.name;
         const channelName = (message.channel as BaseGuildTextChannel | BaseGuildVoiceChannel).name
-        const logMessage = `RESPONSE ;; ${process.env.DEVICE} ;; ${logName} ;; ${guildName} ;; ${channelName} ;; ${message.author.username} ;; ${message.id} ;; ${message.createdAt.toISOString()}`;
+        const logMessage = `${process.env.DEVICE} ;; RESPONSE ;; ${logName} ;; ${guildName} ;; ${channelName} ;; ${message.author.username} ;; ${message.id} ;; ${message.createdAt.toISOString()}`;
 
         console.log(logMessage);
 
         sendLogToChannel(message.client, GUILD_CHANNEL_IDS.TEST_SERVER.ALL_LOGS, logMessage);
         sendLogToChannel(message.client, GUILD_CHANNEL_IDS.TEST_SERVER.RESPONSE_LOGS, logMessage);
+    },
+
+    logVC: (voiceChannel: VoiceBasedChannel, logName: string) => {
+        const guildName = voiceChannel.guild.name;
+        const channelName = voiceChannel.name;
+        const time = new Date();
+        const logMessage = `${process.env.DEVICE} ;; VC ;; ${logName} ;; ${guildName} ;; ${channelName} ;; ${time.toISOString()}`
+
+        console.log(logMessage);
+        
+        sendLogToChannel(voiceChannel.client, GUILD_CHANNEL_IDS.TEST_SERVER.ALL_LOGS, logMessage);
+        sendLogToChannel(voiceChannel.client, GUILD_CHANNEL_IDS.TEST_SERVER.VC_LOGS, logMessage);
     },
 
     logReady: (client: Client<boolean>) => {
