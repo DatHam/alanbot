@@ -314,6 +314,7 @@ const VCResponder = {
             message.mentions.channels.forEach((channel) => {
                 if (channel.type == ChannelType.GuildVoice) {
                     VoiceChatHandler.joinVC(channel as VoiceBasedChannel);
+                    reply(message, "ok", true);
                     return true;
                 }
             });
@@ -325,6 +326,7 @@ const VCResponder = {
         if (messageLowercase.startsWith("leave")) {
             if (message.mentions.channels.size != 0) {
                 VoiceChatHandler.leaveVC(message.mentions.channels.first() as VoiceBasedChannel);
+                reply(message, "ok", true);
                 return true;
             }
         }

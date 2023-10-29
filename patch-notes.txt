@@ -297,3 +297,10 @@ alanbot patch 1.4
         - the channel doesn't even have to be a voice channel
     - alanbot doesn't actually do anything in vc
 </patch>
+
+
+<patch>
+alanbot patch 1.4.0.1
+2023 10 29 01 09
+    - alanbot will say "ok" if you make him join/leave a vc
+</patch>
