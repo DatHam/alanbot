@@ -313,7 +313,10 @@ const VCResponder = {
         if (messageLowercase.startsWith("join")) {
             message.mentions.channels.forEach((channel) => {
                 if (channel.type == ChannelType.GuildVoice) {
-                    VoiceChatHandler.joinVC(channel as VoiceBasedChannel);
+                    const joinMuted = messageLowercase.indexOf("mute") != -1 && messageLowercase.indexOf("unmute") == -1;
+                    const joinDeafened = messageLowercase.indexOf("undeafen") == -1 || messageLowercase.indexOf("undefen") == -1;
+                    console.log(joinMuted + " " + joinDeafened);
+                    VoiceChatHandler.joinVC(channel as VoiceBasedChannel, joinMuted, joinDeafened);
                     reply(message, "ok", true);
                     return true;
                 }

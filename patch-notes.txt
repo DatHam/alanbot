@@ -304,3 +304,13 @@ alanbot patch 1.4.0.1
 2023 10 29 01 09
     - alanbot will say "ok" if you make him join/leave a vc
 </patch>
+
+
+<patch>
+alanbot patch 1.4.0.2
+2023 10 29 01 54
+    - you can now configure whether alanbot joins muted/unmuted or deafened/undeafened
+        - in your join message include mute, unmute, deafened, or undeafened
+        - unmuted and deafened is the default
+        - if you misspell undeafened as undefened it still works
+</patch>
