@@ -314,3 +314,11 @@ alanbot patch 1.4.0.2
         - unmuted and deafened is the default
         - if you misspell undeafened as undefened it still works
 </patch>
+
+
+<patch>
+alanbot patch 1.4.0.3
+2023 10 29 12 47
+    - alanbot will no longer break due to trying to send messages
+      in a channel in which he does not have the required permissions
+</patch>

@@ -1,4 +1,4 @@
-import { MessageType, userMention, Message, channelLink, channelMention, VoiceBasedChannel, ChannelType } from "discord.js";
+import { MessageType, userMention, Message, channelLink, channelMention, VoiceBasedChannel, ChannelType, TextBasedChannel, GuildChannelResolvable, PermissionFlagsBits } from "discord.js";
 
 import Logger from "./Logger";
 import VoiceChatHandler from "./VoiceChatHandler";
@@ -77,8 +77,14 @@ const MAX_RESPONSES_TO_SAM = 10;
 let numResponsesToSam = 0;
 
 
-const reply = async (message: Message<boolean>, replyMessage: string, allowMention: boolean) => {
-    await message.channel.sendTyping();
+const reply = (message: Message<boolean>, replyMessage: string, allowMention: boolean, logName: string) => {
+    const hasPermission = message.guild?.members.me?.permissionsIn(message.channel as GuildChannelResolvable).has(PermissionFlagsBits.SendMessages);
+    if (!hasPermission) {
+        Logger.logResponse(message, logName, false);
+        return false;
+    }
+
+    // await message.channel.sendTyping();
     if (allowMention) {
         message.reply({
             content: replyMessage,
@@ -89,6 +95,10 @@ const reply = async (message: Message<boolean>, replyMessage: string, allowMenti
             allowedMentions: { parse: [] },
         });
     }
+
+    Logger.logResponse(message, logName, true);
+
+    return true;
 }
 
 const changeQuotesToApostrophes = (str: string) => {
@@ -115,11 +125,9 @@ const JoeverHelper = {
                 let lowercaseCount = message.content.replace(/[^a-z]/g, '').length;
 
                 if (uppercaseCount >= lowercaseCount) {
-                    reply(message, `${message.content}${ITS_JOEVER.toUpperCase()}`, false);
-                    Logger.logResponse(message, `joe:${ITS[i].toUpperCase()}`);
+                    reply(message, `${message.content}${ITS_JOEVER.toUpperCase()}`, false, `joe:${ITS[i].toUpperCase()}`);
                 } else {
-                    reply(message, `${message.content}${ITS_JOEVER.toLowerCase()}`, false);
-                    Logger.logResponse(message, `joe:${ITS[i].toLowerCase()}`);
+                    reply(message, `${message.content}${ITS_JOEVER.toLowerCase()}`, false, `joe:${ITS[i].toLowerCase()}`);
                 }
                 return true;
             }
@@ -137,8 +145,7 @@ const JoeverHelper = {
                     response = response.toUpperCase();
                 } 
 
-                reply(message, `${response}`, false);
-                Logger.logResponse(message, `joe:${UH_OHS[i]}:${response}`);
+                reply(message, `${response}`, false, `joe:${UH_OHS[i]}:${response}`);
                 return true;
             }
         }
@@ -156,11 +163,13 @@ const SambotResponder = {
             if (message.content.indexOf("concept of zero") != -1) {
                 const responseCondition = numResponsesToSam < MAX_RESPONSES_TO_SAM;
                 if (responseCondition) {
-                    reply(message, `wow what a fun fact`, false);
-                    return true
+                    reply(message, `wow what a fun fact`, false, `SB 0 t`);
+                    numResponsesToSam++;
+                    return true;
+                } else {
+                    Logger.logResponse(message, `SB 0 f`);
+                    numResponsesToSam++;
                 }
-                Logger.logResponse(message, `SB 0 r${numResponsesToSam}${responseCondition ? "t" : "f"}`);
-                numResponsesToSam++;
             }
         }
         return false;
@@ -170,11 +179,13 @@ const SambotResponder = {
             Logger.logResponse(message, "SB msg");
             const responseCondition = numResponsesToSam < MAX_RESPONSES_TO_SAM;
             if (responseCondition) {
-                reply(message, `if you can see this message that means bots can respond to other bots`, false);
+                reply(message, `if you can see this message that means bots can respond to other bots`, false, `SB All t`);
+                numResponsesToSam++;
                 return true;
+            } else {
+                Logger.logResponse(message, `SB All f`);
+                numResponsesToSam++;
             }
-            Logger.logResponse(message, `SB All r${numResponsesToSam}${responseCondition ? "t" : "f"}`);
-            numResponsesToSam++;
         }
         return false;
     }
@@ -183,16 +194,14 @@ const SambotResponder = {
 const HumanResponder = {
     respondToPingString: (message: Message<boolean>) => {
         if (message.content == "ping") {
-            reply(message, "pong ", true);
-            Logger.logResponse(message, "ponged");
+            reply(message, "pong ", true, "ponged");
             return true;
         }
         return false;
     },
     respondToHiAlanbot: (message: Message<boolean>) => {
         if (message.content.toLowerCase() == "hi alanbot") {
-            reply(message, "hi", true);
-            Logger.logResponse(message, "hialan");
+            reply(message, "hi", true, "hialan");
             return true;
         }
         return false;
@@ -204,16 +213,14 @@ const HumanResponder = {
         for (let i = 0; i < TESSES.length; i++) {
             const lastIndex = messageLowercase.lastIndexOf(TESSES[i]);
             if (lastIndex + TESSES[i].length + TICKLE.length >= 2000) { // checks if message is too long
-                reply(message, `nice try but i fixed it`, false);
-                Logger.logResponse(message, `t:nice try`);
+                reply(message, `nice try but i fixed it`, false, `t:nice try`);
             } else if (lastIndex > indexOfLastTessInMessage) {
                 indexOfLastTessInMessage = lastIndex;
                 indexOfLastTessInArray = i;
             }
         }
         if (indexOfLastTessInMessage != -1) {
-            reply(message, `${message.content.substring(0, indexOfLastTessInMessage + TESSES[indexOfLastTessInArray].length)}${TICKLE}`, false);
-            Logger.logResponse(message, `t:${TESSES[indexOfLastTessInArray]}`);
+            reply(message, `${message.content.substring(0, indexOfLastTessInMessage + TESSES[indexOfLastTessInArray].length)}${TICKLE}`, false, `t:${TESSES[indexOfLastTessInArray]}`);
             return true;
         }
         return false;
@@ -221,8 +228,7 @@ const HumanResponder = {
     respondToScreens: (message: Message<boolean>) => {
         const messageLowercase = message.content.toLowerCase();
         if (messageLowercase.indexOf('eens') != -1 || messageLowercase.indexOf('eans') != -1) {
-            reply(message, `cool ${message.content.substring(0, Math.max(messageLowercase.lastIndexOf('eens'), messageLowercase.lastIndexOf('eans')) + 4)}`, false);
-            Logger.logResponse(message, "screens");
+            reply(message, `cool ${message.content.substring(0, Math.max(messageLowercase.lastIndexOf('eens'), messageLowercase.lastIndexOf('eans')) + 4)}`, false, "screens");
             return true;
         }
         return false;
@@ -230,8 +236,7 @@ const HumanResponder = {
     respondToSambotString: (message: Message<boolean>) => {
         const messageLowercase = message.content.toLowerCase();
         if (messageLowercase.indexOf('sambot') != -1) {
-            reply(message, `${message.content.substring(0, messageLowercase.lastIndexOf('sambot') + 6)} > alanbot`, false);
-            Logger.logResponse(message, "sb>ab");
+            reply(message, `${message.content.substring(0, messageLowercase.lastIndexOf('sambot') + 6)} > alanbot`, false, "sb>ab");
             return true;
         }
         return false;
@@ -255,8 +260,7 @@ const HumanResponder = {
                 startIndex++;
             }
             
-            reply(message, `hi ${message.content.substring(startIndex)}`, false);
-            Logger.logResponse(message, `im:${indexOfFirstImInArray}`);
+            reply(message, `hi ${message.content.substring(startIndex)}`, false, `im:${indexOfFirstImInArray}`);
             return true;
         }
         return false;
@@ -273,8 +277,7 @@ const HumanResponder = {
     respondToEr: (message: Message<boolean>) => {
         const messageLowercase = message.content.toLowerCase();
         if (messageLowercase.endsWith("er")) {
-            reply(message, "i hardly know er", false);
-            Logger.logResponse(message, `er`);
+            reply(message, "i hardly know er", false, `er`);
             return true;
         }
         return false;
@@ -286,8 +289,7 @@ const HumanResponder = {
                 const messageLowercase = message.content.toLowerCase();
                 for (let i = 0; i < GREETINGS.length; i++) {
                     if (messageLowercase.indexOf(GREETINGS[i]) != -1) {
-                        reply(message, `hi`, true);
-                        Logger.logResponse(message, `reply: ${GREETINGS[i]}`);
+                        reply(message, `hi`, true, `reply: ${GREETINGS[i]}`);
                         return true;
                     }
                 }
@@ -297,8 +299,7 @@ const HumanResponder = {
             const messageLowercase = message.content.toLowerCase();
                 for (let i = 0; i < GREETINGS.length; i++) {
                     if (messageLowercase.indexOf(GREETINGS[i]) != -1) {
-                        reply(message, `hi`, true);
-                        Logger.logResponse(message, `reply: ${GREETINGS[i]}`);
+                        reply(message, `hi`, true, `reply: ${GREETINGS[i]}`);
                         return true;
                     }
                 }
@@ -317,7 +318,7 @@ const VCResponder = {
                     const joinDeafened = messageLowercase.indexOf("undeafen") == -1 && messageLowercase.indexOf("undefen") == -1;
                     console.log(joinMuted + " " + joinDeafened);
                     VoiceChatHandler.joinVC(channel as VoiceBasedChannel, joinMuted, joinDeafened);
-                    reply(message, "ok", true);
+                    reply(message, "ok", true, `joinvc:ok`);
                     return true;
                 }
             });
@@ -329,7 +330,7 @@ const VCResponder = {
         if (messageLowercase.startsWith("leave")) {
             if (message.mentions.channels.size != 0) {
                 VoiceChatHandler.leaveVC(message.mentions.channels.first() as VoiceBasedChannel);
-                reply(message, "ok", true);
+                reply(message, "ok", true, `leavevc:ok`);
                 return true;
             }
         }
@@ -343,6 +344,7 @@ const IAN_GUILDS = [
     GUILD_IDS.GEOGUSSRY,
     GUILD_IDS.JHS_ORCHESTRA,
     GUILD_IDS.TEST_SERVER,
+    GUILD_IDS.TEST_SERVER_NO_ADMIN,
 ]
 const RESPONSE_CHANCE = 0.2;
 const FORCE_RESPONSE_STRINGS = [
