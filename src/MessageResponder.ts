@@ -320,6 +320,8 @@ const VCResponder = {
                     VoiceChatHandler.joinVC(channel as VoiceBasedChannel, joinMuted, joinDeafened);
                     reply(message, "ok", true, `joinvc:ok`);
                     return true;
+                } else {
+                    reply(message, "bruh how am i supposed to join a text channel :rolling_eyes:", true, `joinvc:bruh`);
                 }
             });
         }
