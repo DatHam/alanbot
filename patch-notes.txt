@@ -322,3 +322,10 @@ alanbot patch 1.4.0.3
     - alanbot will no longer break due to trying to send messages
       in a channel in which he does not have the required permissions
 </patch>
+
+
+<patch>
+alanbot patch 1.4.0.4
+2023 10 30 18 23
+    - alanbot will now send a condencending message when you try make it join a text channel
+</patch>
