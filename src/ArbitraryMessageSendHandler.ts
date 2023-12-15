@@ -3,23 +3,23 @@ import GUILD_CHANNEL_IDS from "./IDS/GUILD_CHANNEL_IDS";
 import Logger from "./Logger";
 
 const sendMessageToChannel = (message: Message<boolean>, channelID: string, messageToSend: string) => {
-    const channel = message.client.channels.cache.get(channelID);
-    const hasPermissionToSendMessages = message.guild?.members.me?.permissionsIn(channel as GuildChannelResolvable).has(PermissionFlagsBits.SendMessages);
-
+    const channel = message.client.channels.cache.get(channelID) as TextChannel;
+    const hasPermissionToSendMessages = channel.guild.members.me?.permissionsIn(channel as GuildChannelResolvable).has(PermissionFlagsBits.SendMessages);
+    console.log(hasPermissionToSendMessages);
     if (!hasPermissionToSendMessages) {
         Logger.logArbitraryMessageSend(message, "send", messageToSend, false);
         return false;
     }
 
-    (channel as TextChannel).send(messageToSend);
+    channel.send(messageToSend);
     Logger.logArbitraryMessageSend(message, "send", messageToSend, true);
     return true;
 }
 
 const sendReplyToMessage = (message: Message<boolean>, channelID: string, messageID: string, messageToSend: string) => {
-    const channel = message.client.channels.cache.get(channelID);
-    const messageToReplyTo = (channel as TextChannel).messages.cache.get(messageID);
-    const hasPermissionToSendMessages = message.guild?.members.me?.permissionsIn(channel as GuildChannelResolvable).has(PermissionFlagsBits.SendMessages);
+    const channel = message.client.channels.cache.get(channelID) as TextChannel;
+    const messageToReplyTo = channel.messages.cache.get(messageID);
+    const hasPermissionToSendMessages = channel.guild.members.me?.permissionsIn(channel as GuildChannelResolvable).has(PermissionFlagsBits.SendMessages);
 
     if (messageToReplyTo == undefined) {
         Logger.logArbitraryMessageSend(message, "reply", messageToSend, undefined);
