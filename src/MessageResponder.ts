@@ -1,4 +1,4 @@
-import { MessageType, userMention, Message, channelLink, channelMention, VoiceBasedChannel, ChannelType, TextBasedChannel, GuildChannelResolvable, PermissionFlagsBits } from "discord.js";
+import { MessageType, userMention, Message, VoiceBasedChannel, ChannelType, GuildChannelResolvable, PermissionFlagsBits } from "discord.js";
 
 import Logger from "./Logger";
 import VoiceChatHandler from "./VoiceChatHandler";
@@ -114,6 +114,7 @@ const JoeverHelper = {
      * 
      * If message has more uppercase characters than lowercase characters, then it responds with:
      * * message + " JOEVER"
+     * 
      * @param {*} message the message object from discord
      * @returns true if responded and false if not
      */
@@ -134,6 +135,15 @@ const JoeverHelper = {
         }
         return false;
     },
+    /** Responds whenever a message contains any string in UH_OHS with:
+     * * a random string from JOEVERS
+     * 
+     * If message has more uppercase characters than lowercase characters, then it responds with:
+     * * the random string from JOEVERS in all uppercase
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     respondToUhOh: (message: Message<boolean>) => {
         const messageLowercase = changeQuotesToApostrophes(message.content.toLowerCase());
         for (let i = 0; i < UH_OHS.length; i++) {
@@ -155,8 +165,12 @@ const JoeverHelper = {
 
 
 const SambotResponder = {
-    // MAX_RESPONSES_TO_SAM: 10,
-    // numResponsesToSam: 0,
+    /** Responds to any message by sambot that contains the string "concept of zero" with:
+     * * "wow what a fun fact"
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     conceptZero: (message: Message<boolean>) => {
         if (message.author.id == USER_IDS.SAMBOT) {
             Logger.logResponse(message, "SB msg");
@@ -174,6 +188,12 @@ const SambotResponder = {
         }
         return false;
     },
+    /** Responds to any message by sambot with:
+     * * "if you can see this message that means bots can respond to other bots"
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     respondToAllMessages: (message: Message<boolean>) => {
         if (message.author.id == USER_IDS.SAMBOT) {
             Logger.logResponse(message, "SB msg");
@@ -191,14 +211,27 @@ const SambotResponder = {
     }
 };
 
+
 const HumanResponder = {
+    /** Responds to any message that is "ping" with:
+     * * "pong" + the client's ping
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     respondToPingString: (message: Message<boolean>) => {
         if (message.content == "ping") {
-            reply(message, "pong ", true, "ponged");
+            reply(message, `pong ${message.client.ws.ping}`, true, "ponged");
             return true;
         }
         return false;
     },
+    /** Responds to any message that is "hi alanbot" (case insensitive) with:
+     * * "hi"
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     respondToHiAlanbot: (message: Message<boolean>) => {
         if (message.content.toLowerCase() == "hi alanbot") {
             reply(message, "hi", true, "hialan");
@@ -206,6 +239,14 @@ const HumanResponder = {
         }
         return false;
     },
+    /** Responds to any message that contains any string in TESSES with:
+     * * the message up to the last instance of the string in TESSES + " tickles very tasty"
+     * * if the message is too long, then it responds with:
+     * * * "nice try but i fixed it"
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     respondToTess: (message: Message<boolean>) => {
         const messageLowercase = message.content.toLowerCase();
         let indexOfLastTessInMessage = -1;
@@ -225,6 +266,12 @@ const HumanResponder = {
         }
         return false;
     },
+    /** Responds to any message that contains "eens" or "eans" with:
+     * * "cool" + the message up to the last instance of "eens" or "eans"
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     respondToScreens: (message: Message<boolean>) => {
         const messageLowercase = message.content.toLowerCase();
         if (messageLowercase.indexOf('eens') != -1 || messageLowercase.indexOf('eans') != -1) {
@@ -233,6 +280,12 @@ const HumanResponder = {
         }
         return false;
     },
+    /** Responds to any message that contains "sambot" with:
+     * * the message up to the last instance of "sambot" + " > alanbot"
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     respondToSambotString: (message: Message<boolean>) => {
         const messageLowercase = message.content.toLowerCase();
         if (messageLowercase.indexOf('sambot') != -1) {
@@ -241,6 +294,12 @@ const HumanResponder = {
         }
         return false;
     },
+    /** Responds to any message that starts with any string in IMS with:
+     * * "hi" + the message after the first string in IMS
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     respondToIm: (message: Message<boolean>) => {
         const messageLowercase = changeQuotesToApostrophes(message.content.toLowerCase());
         let indexOfFirstImInMessage = Number.MAX_SAFE_INTEGER;
@@ -265,6 +324,22 @@ const HumanResponder = {
         }
         return false;
     },
+    /** Responds to any message that ends with any string in ITS with:
+     * * message + " joever"
+     * 
+     * If message has more uppercase characters than lowercase characters, then it responds with:
+     * * message + " JOEVER"
+     * 
+     * If the message does not end with any string in ITS, 
+     * then it responds to any message that contains any string in UH_OHS with:
+     * * a random string from JOEVERS
+     * 
+     * If message has more uppercase characters than lowercase characters, then it responds with:
+     * * the random string from JOEVERS in all uppercase
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     respondToJoevers: (message: Message<boolean>) => {
         if (JoeverHelper.respondToIts(message)) {
             return true;
@@ -274,6 +349,12 @@ const HumanResponder = {
         }
         return false;
     },
+    /** Responds to any message that ends with "er" with:
+     * * "i hardly know er"
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     respondToEr: (message: Message<boolean>) => {
         const messageLowercase = message.content.toLowerCase();
         if (messageLowercase.endsWith("er")) {
@@ -282,6 +363,15 @@ const HumanResponder = {
         }
         return false;
     },
+    /** Responds to any message if:
+     * * it is a reply to a message by alanbot or if it mentions alanbot and
+     * * it contains any string in GREETINGS
+     * 
+     * with: "hi"
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     respondToRepliesHi: (message: Message<boolean>) => {
         if (message.type == MessageType.Reply) {
             const repliedMessage = message.channel.messages.cache.get(message.reference?.messageId || "");
@@ -309,6 +399,19 @@ const HumanResponder = {
 }
 
 const VCResponder = {
+    /** Responds to any message that starts with "join" and mentions a voice channel with:
+     * * "ok"
+     * and joins the specified voice channel
+     * 
+     * The user may specify whether to join muted or deafened by including "mute", "deafen", "unmute", or "undeafen" in the message
+     * The default is to join unmuted and deafened
+     * 
+     * If the message mentions a channel that is not a voice channel, then it responds with:
+     * * "bruh how am i supposed to join a text channel :rolling_eyes:"
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     VCJoiner: (message: Message<boolean>) => {
         const messageLowercase = message.content.toLowerCase();
         if (messageLowercase.startsWith("join")) {
@@ -327,6 +430,13 @@ const VCResponder = {
         }
         return false;
     },
+    /** Responds to any message that starts with "leave" and mentions a channel with:
+     * * "ok"
+     * and leaves the voice channel in the server that the message was sent in
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
     VCLeaver: (message: Message<boolean>) => {
         const messageLowercase = message.content.toLowerCase();
         if (messageLowercase.startsWith("leave")) {

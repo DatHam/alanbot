@@ -329,3 +329,11 @@ alanbot patch 1.4.0.4
 2023 10 30 18 23
     - alanbot will now send a condencending message when you try make it join a text channel
 </patch>
+
+
+<patch>
+alanbot patch 1.5
+2023 12 14 22 31
+    - alanbot now has the ability to arbitrarily send/reply to messages per request in the test server
+    - documentation additions
+</patch>

@@ -32,6 +32,15 @@ const Logger = {
         sendLogToChannel(voiceChannel.client, GUILD_CHANNEL_IDS.TEST_SERVER.VC_LOGS, logMessage);
     },
 
+    logArbitraryMessageSend: (message: Message<boolean>, logName: string, content: string, hasPermissionToSendMessages?: boolean) => {
+        const logMessage = `${process.env.DEVICE} ;; ARBITRARY_MESSAGE_SEND ;; SEND_MESSGAE_PERMISSION:${hasPermissionToSendMessages} ;; ${logName} ;; request by: ${message.author.username} ;; ${message.createdAt.toISOString()} ;; ${content}`;
+
+        console.log(logMessage);
+
+        sendLogToChannel(message.client, GUILD_CHANNEL_IDS.TEST_SERVER.ALL_LOGS, logMessage);
+        sendLogToChannel(message.client, GUILD_CHANNEL_IDS.TEST_SERVER.ARBITRARY_MESSAGE_SEND_LOGS, logMessage);
+    },
+
     logReady: (client: Client<boolean>) => {
         const time = new Date();
         let logMessage = `\nREADY`
