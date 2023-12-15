@@ -337,3 +337,10 @@ alanbot patch 1.5
     - alanbot now has the ability to arbitrarily send/reply to messages per request in the test server
     - documentation additions
 </patch>
+
+
+<patch>
+alanbot patch 1.5.0.1
+2023 12 14 23 11
+    - fixed arbitrary message sending error when no speaking permissions
+</patch>
