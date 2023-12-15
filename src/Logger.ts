@@ -38,7 +38,7 @@ const Logger = {
         console.log(logMessage);
 
         sendLogToChannel(message.client, GUILD_CHANNEL_IDS.TEST_SERVER.ALL_LOGS, logMessage);
-        sendLogToChannel(message.client, GUILD_CHANNEL_IDS.TEST_SERVER.ARBITRARY_MESSAGE_SEND_LOGS, logMessage);
+        sendLogToChannel(message.client, GUILD_CHANNEL_IDS.TEST_SERVER.ARBITRARY_MESSAGE_REQUESTS, logMessage);
     },
 
     logReady: (client: Client<boolean>) => {

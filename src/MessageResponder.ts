@@ -55,7 +55,7 @@ const ITS_JOEVER = " joever";
 
 const UH_OHS = [    "uh oh", "oh no", 
                     "i still need to", "i really need to", "i still haven't done",
-                    "i forgot to do",
+                    "i forgot to", "i forgot that i need", "i forgot that i have to",
 ];
 const JOEVERS = [   "joever", "it's joever", "actually joever", "it's actually joever", "it's actually joever wtf",
                     "bruh it's joever", "bruh it's actually joever", "bruh it's actually joever wtf",

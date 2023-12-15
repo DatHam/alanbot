@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits, Events, MessageType, Message, userMention, VoiceBasedChannel, TextBasedChannel } from 'discord.js';
+import { Client, GatewayIntentBits, Events, MessageType, Message, userMention, VoiceBasedChannel, TextBasedChannel, ActivityType } from 'discord.js';
 import 'dotenv/config';
 import mongoose from 'mongoose';
 
@@ -45,6 +45,10 @@ process.on('unhandledRejection', (error: Error | any, promise: Promise<any>) => 
 })();
 
 client.on(Events.ClientReady, () => {
+    client.user?.setActivity({
+        name: "alanbot",
+        type: ActivityType.Custom,
+    });
     Logger.logReady(client);
 });
 

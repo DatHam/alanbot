@@ -344,3 +344,10 @@ alanbot patch 1.5.0.1
 2023 12 14 23 11
     - fixed arbitrary message sending error when no speaking permissions
 </patch>
+
+
+<patch>
+alanbot patch 1.5.0.2
+2023 12 15 00 28
+    - alanbot now has a custom status: "alanbot"
+</patch>
