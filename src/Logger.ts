@@ -12,7 +12,7 @@ const Logger = {
     logResponse: (message: Message<boolean> , logName: string, hasPermissionToSendMessages?: boolean) => {
         const guildName = message.guild?.name;
         const channelName = (message.channel as BaseGuildTextChannel | BaseGuildVoiceChannel).name
-        const logMessage = `${process.env.DEVICE} ;; RESPONSE ;; SEND_MESSGAE_PERMISSION:${hasPermissionToSendMessages} ;; ${logName} ;; ${guildName} ;; ${channelName} ;; ${message.author.username} ;; ${message.id} ;; ${message.createdAt.toISOString()}`;
+        const logMessage = `${process.env.DEVICE} ;; RESPONSE ;; SEND_MESSAGE_PERMISSION:${hasPermissionToSendMessages} ;; ${logName} ;; ${guildName} ;; ${channelName} ;; ${message.author.username} ;; ${message.id} ;; ${message.createdAt.toISOString()}`;
 
         console.log(logMessage);
 
