@@ -5,7 +5,6 @@ import mongoose from 'mongoose';
 import MessageResponder from "./MessageResponder";
 import Logger from "./Logger";
 import PresenceLogger from "./PresenceLogger";
-import VoiceChatHandler from './VoiceChatHandler';
 import ArbitraryMessageSendHandler from './ArbitraryMessageSendHandler';
 
 import USER_IDS from "./IDS/USER_IDS";
