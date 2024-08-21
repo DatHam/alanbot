@@ -351,3 +351,16 @@ alanbot patch 1.5.0.2
 2023 12 15 00 28
     - alanbot now has a custom status: "alanbot"
 </patch>
+
+
+<patch>
+alanbot patch 1.5.0.3
+2024 08 21 10 23
+    - fixed typo "MESSGAE" in Logger.js
+</patch>
+
+<patch>
+alanbot patch 1.5.1
+2024 08 21 10 45
+    - alanbot will now respond to messages containing some words that rhyme with "wear" with song lyrics
+</patch>

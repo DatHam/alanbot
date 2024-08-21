@@ -72,6 +72,9 @@ const GREETINGS = [ "hi",
                     "hola", "aloha", "bonjour", "salut", "hallo", "ciao",
 ];
 
+const WEARS = ["wear", "air", "are", "where", ];
+const A_MASK = " a mask with a smile for hours at a time";
+
 
 const MAX_RESPONSES_TO_SAM = 10;
 let numResponsesToSam = 0;
@@ -396,6 +399,33 @@ const HumanResponder = {
         }
         return false;
     },
+    /** Responds to any message that contains any string in WEARS with:
+     * * the message up to the last instance of the string in WEARS + " a mask with a smile for hours at a time"
+     * * if the message is too long, then it responds with:
+     * * * "nice try but i fixed it"
+     * 
+     * @param message the message object from discord
+     * @returns true if responded and false if not 
+     */
+    respondToWear: (message: Message<boolean>) => {
+        const messageLowercase = message.content.toLowerCase();
+        let indexOfLastTessInMessage = -1;
+        let indexOfLastTessInArray = -1;
+        for (let i = 0; i < WEARS.length; i++) {
+            const lastIndex = messageLowercase.lastIndexOf(WEARS[i]);
+            if (lastIndex + WEARS[i].length + A_MASK.length >= 2000) { // checks if message is too long
+                reply(message, `nice try but i fixed it`, false, `w:nice try`);
+            } else if (lastIndex > indexOfLastTessInMessage) {
+                indexOfLastTessInMessage = lastIndex;
+                indexOfLastTessInArray = i;
+            }
+        }
+        if (indexOfLastTessInMessage != -1) {
+            reply(message, `${message.content.substring(0, indexOfLastTessInMessage + WEARS[indexOfLastTessInArray].length)}${A_MASK}`, false, `w:${WEARS[indexOfLastTessInArray]}`);
+            return true;
+        }
+        return false;
+    }
 }
 
 const VCResponder = {
@@ -460,7 +490,7 @@ const IAN_GUILDS = [
 ]
 const RESPONSE_CHANCE = 0.2;
 const FORCE_RESPONSE_STRINGS = [
-    "alan", "dat", "ham", userMention(USER_IDS.ALANBOT),
+    "alan", "dat", "ham", userMention(USER_IDS.ALANBOT), userMention(USER_IDS.DATHAM),
 ];
 const MessageResponder = {
     respond: (message: Message<boolean>) => {
@@ -480,19 +510,20 @@ const MessageResponder = {
             HumanResponder.respondToJoevers(message);
 
             const isReplyToAlanbot = message.type == MessageType.Reply && message.channel.messages.cache.get(message.reference?.messageId || "")?.author.id == USER_IDS.ALANBOT;
-            let forceResponse = false;
+            let forceResponse = message.author.id == USER_IDS.CREEHOP || isReplyToAlanbot;
             for (let i = 0; i < FORCE_RESPONSE_STRINGS.length; i++) {
-                if (message.content.toLowerCase().indexOf(FORCE_RESPONSE_STRINGS[i]) != -1) {
+                if (message.content.toLowerCase().indexOf(FORCE_RESPONSE_STRINGS[i]) != -1 || forceResponse) {
                     forceResponse = true;
                     break;
                 }
             }
-            if (message.author.id == USER_IDS.CREEHOP || isReplyToAlanbot || forceResponse || Math.random() < RESPONSE_CHANCE) {
+            if (forceResponse || Math.random() < RESPONSE_CHANCE) {
                 HumanResponder.respondToIm(message);
                 if (IAN_GUILDS.indexOf(message.guildId || "") != -1) {
                     HumanResponder.respondToTess(message);
                     HumanResponder.respondToScreens(message);
                     HumanResponder.respondToEr(message);
+                    HumanResponder.respondToWear(message);
                 }    
             }
         }
