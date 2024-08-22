@@ -364,3 +364,9 @@ alanbot patch 1.5.1
 2024 08 21 10 45
     - alanbot will now respond to messages containing some words that rhyme with "wear" with song lyrics
 </patch>
+
+<patch>
+alanbot patch 1.5.1.1
+2024 08 22 14 05
+    - added "frick" to UH_OHS
+</patch>
