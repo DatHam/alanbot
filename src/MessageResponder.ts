@@ -7,6 +7,18 @@ import USER_IDS from "./IDS/USER_IDS";
 import GUILD_IDS from "./IDS/GUILD_IDS";
 
 
+const ALANBOT_YOURES = ["alanbot you're", "alanbot youre", "alanbot ur", "alanbot you are", "alanbot your",
+                        "alanbot is",  "alanbot's", "alanbots",
+                        "alanbot was", 
+                        "alanbot will be",
+                        "alanbot has been",
+                        "alanbot had been",
+                        "alanbot will have been",
+                        "alanbot will of been",
+                        "alanbot will've been",
+                        "alanbot willve been",
+];
+
 const TESSES = ['ess', 'est'];
 const TICKLE = ' tickles very tasty';
 
@@ -240,6 +252,21 @@ const HumanResponder = {
         if (message.content.toLowerCase() == "hi alanbot") {
             reply(message, "hi", true, "hialan");
             return true;
+        }
+        return false;
+    },
+    /**
+     * Responds to any message containing a derivative of " ... alanbot you're ... " with:
+     * * "no im alanbot"
+     * @param message the message object from discord
+     * @returns true if responded and false if not
+     */
+    respondToAlanbotYoure: (message: Message<boolean>) => {
+        for (let str of ALANBOT_YOURES) {
+            if (message.content.toLowerCase().indexOf(str) != -1) {
+                reply(message, "no im alanbot", true, "noim");
+                return true;
+            }
         }
         return false;
     },
@@ -504,6 +531,7 @@ const MessageResponder = {
             VCResponder.VCJoiner(message);
             VCResponder.VCLeaver(message);
             
+            HumanResponder.respondToAlanbotYoure(message);
             HumanResponder.respondToHiAlanbot(message);
             HumanResponder.respondToRepliesHi(message);
             HumanResponder.respondToPingString(message);

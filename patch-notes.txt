@@ -370,3 +370,9 @@ alanbot patch 1.5.1.1
 2024 08 22 14 05
     - added "frick" to UH_OHS
 </patch>
+
+<patch>
+alanbot patch 1.5.2
+2024 09 27 00 09
+    - alanbot will now respond to messages containing "alanbot you're" or similar phrases with "no im alanbot"
+</patch>
